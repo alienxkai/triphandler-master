@@ -1,0 +1,71 @@
+{% extends '/backoffice/index.html.twig' %}
+
+{% block page_title %} Admin Page - Trip Handlers - User Management {% endblock %}
+
+{% block maincontent %}
+
+    <div class="row">
+        <div class="span2">
+            <a href="javascript:;" class="main-left">Apps</a>
+            <a href="javascript:;" class="main-left">Bookmarks</a>
+            <a href="javascript:;" class="main-left">Reports</a>
+            <a href="javascript:;" class="main-left">Comments</a>
+            <a href="javascript:;" class="main-left">Users</a>
+        </div>
+        <!-- /span2 -->
+        <div class="span10">
+            <div class="widget widget-table action-table">
+                <div class="widget-header"> <i class="icon-th-list"></i>
+                    <h3> {%  block header_title %} User List {% endblock %} </h3>
+                    <div class="save-button" style="float:right;">
+                        <!--<a class="btn" data-toggle="modal" data-target="#myModal"  href="{{ path('platform_user_insertpage') }}">Add User</a><i style="margin-right: 10px;" class="icon-large icon-plus "></i>-->
+                        <a href="#myModal" role="button" class="btn" data-toggle="modal">Add</a><i style="margin-right: 10px;" class="icon-large icon-plus "></i>
+                        <!--<div id="myModal">-->
+                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            {{ render(controller('PlatformCoreBundle:User:addUserForm')) }}
+                        </div>
+                    </div>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th> Id </th>
+                            <th> Username </th>
+                            <th> Mail address </th>
+                            <th> Role </th>
+                            <th> Type </th>
+                            <th class="td-actions"> </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            {% if users is not empty %}
+                                {% for user in users %}
+                                    <tr>
+                                        <td> {{ user.userid }} </td>
+                                        <td> {{ user.username }} </td>
+                                        <td> {{ user.mail }} </td>
+                                        <td> {{ user.userrole.userrolename }} </td>
+                                        <td> {{ user.usertype.usertypename }} </td>
+                                        <td class="td-actions"><a href="javascript:;" class="btn btn-mini btn-success"><i class="btn-icon-only icon-ok"> </i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr >
+                                    <td colspan="6" class="text-center">No items yet</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /widget-content -->
+            </div>
+            <!-- /widget -->
+        </div>
+        <!-- /span9 -->
+    </div>
+
+{% endblock %}

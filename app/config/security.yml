@@ -1,0 +1,66 @@
+# you can read more about security in the related section of the documentation
+# http://symfony.com/doc/current/book/security.html
+security:
+    # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
+    encoders:
+        Platform\CoreBundle\Entity\Credential: plaintext
+
+    # http://symfony.com/doc/current/book/security.html#hierarchical-roles
+    role_hierarchy:
+        ROLE_MEMBER:      ROLE_MEMBER
+        ROLE_ADMIN:       [ROLE_USER,ROLE_VALIDATOR,ROLE_WM]
+        ROLE_SUPER_ADMIN: [ROLE_USER,ROLE_VALIDATOR,ROLE_WM,ROLE_ADMIN]
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        backoffice_provider:
+            entity:
+                class: Platform\CoreBundle\Entity\Credential
+                property: mail
+
+    # the main part of the security, where you can set up firewalls
+    # for specific sections of your app
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        # the login page has to be accessible for everybody
+        admin_login:
+            pattern:  ^/management/login$
+            security: false
+        client_login:
+            pattern:  ^/my-client/login$
+            security: false
+
+        # secures part of the application
+        admin_area:
+            pattern:    ^/management
+            anonymous: false
+            provider:  backoffice_provider
+            access_denied_url: platform_admin_login
+            form_login:
+                login_path: platform_admin_login
+                check_path: platform_admin_login_check
+                default_target_path: platform_admin_home
+            logout:
+                path:   platform_admin_logout
+                target: platform_admin_login
+        client_area:
+            pattern:    ^/my-client
+            anonymous: false
+            provider:  backoffice_provider
+            access_denied_url: platform_client_login
+            form_login:
+                login_path: platform_client_login
+                check_path: platform_client_login_check
+                default_target_path: platform_client_home
+            logout:
+                path:   platform_client_logout
+                target: platform_client_login
+
+    # with these settings you can restrict or allow access for different parts
+    # of your application based on roles, ip, host or methods
+    # http://symfony.com/doc/current/cookbook/security/access_control.html
+    access_control:
+        - { path: ^/my-client, roles: ROLE_CLIENT }

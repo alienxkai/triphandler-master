@@ -1,0 +1,39 @@
+<?php
+
+namespace Platform\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CoreUsertype
+ *
+ * @ORM\Table(name="core_usertype")
+ * @ORM\Entity
+ */
+class CoreUsertype
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERTYPEID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $usertypeid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USERTYPENAME", type="string", length=20, nullable=true)
+     */
+    private $usertypename;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPTION", type="string", length=20, nullable=true)
+     */
+    private $description;
+
+
+}

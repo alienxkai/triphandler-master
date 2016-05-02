@@ -1,0 +1,53 @@
+<?php
+
+namespace Platform\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CoreSection
+ *
+ * @ORM\Table(name="core_section", indexes={@ORM\Index(name="FK_ACCESSIBLE_POUR", columns={"USERROLEID"})})
+ * @ORM\Entity
+ */
+class CoreSection
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="SECTIONID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $sectionid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERROLEID", type="integer", nullable=false)
+     */
+    private $userroleid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SECTIONNAME", type="string", length=20, nullable=true)
+     */
+    private $sectionname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ICONE", type="string", length=20, nullable=true)
+     */
+    private $icone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="DISPLAYORDER", type="integer", nullable=true)
+     */
+    private $displayorder;
+
+
+}

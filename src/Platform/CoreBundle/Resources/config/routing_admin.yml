@@ -1,0 +1,22 @@
+platform_admin_login:
+    path:     /login
+    defaults: { _controller: PlatformCoreBundle:Core:login }
+
+platform_admin_login_check:
+    pattern: /login_check
+
+platform_admin_logout:
+    pattern: /logout
+
+platform_admin_home:
+    path:     /
+    defaults: { _controller: PlatformCoreBundle:Core:index }
+
+platform_admin_user:
+    path:     /user-list
+    defaults: { _controller: PlatformCoreBundle:User:index }
+
+platform_user_insertpage:
+    path:    /insert-user-form
+    defaults: { _controller: PlatformCoreBundle:User:addUserForm }
+

@@ -1,0 +1,53 @@
+<?php
+
+namespace Platform\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CoreHistorique
+ *
+ * @ORM\Table(name="core_historique", indexes={@ORM\Index(name="FK_A_FAIT", columns={"USERID"})})
+ * @ORM\Entity
+ */
+class CoreHistorique
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="HISTORIQUEID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $historiqueid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERID", type="integer", nullable=false)
+     */
+    private $userid;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HISTORIQUEDATE", type="date", nullable=true)
+     */
+    private $historiquedate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OPERATIONNAME", type="string", length=20, nullable=true)
+     */
+    private $operationname;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ENTITYID", type="integer", nullable=true)
+     */
+    private $entityid;
+
+
+}

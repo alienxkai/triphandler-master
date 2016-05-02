@@ -1,0 +1,39 @@
+<?php
+
+namespace Platform\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CoreUserrole
+ *
+ * @ORM\Table(name="core_userrole")
+ * @ORM\Entity
+ */
+class CoreUserrole
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERROLEID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $userroleid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USERROLENAME", type="string", length=50, nullable=true)
+     */
+    private $userrolename;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPTION", type="string", length=20, nullable=true)
+     */
+    private $description;
+
+
+}

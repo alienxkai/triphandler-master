@@ -1,0 +1,74 @@
+<?php
+
+namespace Platform\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CoreUser
+ *
+ * @ORM\Table(name="core_user", indexes={@ORM\Index(name="FK_DE_ROLE", columns={"USERROLEID"}), @ORM\Index(name="FK_DE_TYPE", columns={"USERTYPEID"})})
+ * @ORM\Entity
+ */
+class CoreUser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $userid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERTYPEID", type="integer", nullable=false)
+     */
+    private $usertypeid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="USERROLEID", type="integer", nullable=false)
+     */
+    private $userroleid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="USERNAME", type="string", length=50, nullable=true)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PASSWORD", type="string", length=20, nullable=true)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MAIL", type="string", length=50, nullable=true)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SECRETQUESTION", type="string", length=150, nullable=true)
+     */
+    private $secretquestion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SECRETANSWER", type="string", length=150, nullable=true)
+     */
+    private $secretanswer;
+
+
+}

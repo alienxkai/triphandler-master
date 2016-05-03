@@ -17,13 +17,12 @@
             <div class="widget widget-table action-table">
                 <div class="widget-header"> <i class="icon-th-list"></i>
                     <h3> {%  block header_title %} User List {% endblock %} </h3>
-                    <div class="save-button" style="float:right;">
-                        <!--<a class="btn" data-toggle="modal" data-target="#myModal"  href="{{ path('platform_user_insertpage') }}">Add User</a><i style="margin-right: 10px;" class="icon-large icon-plus "></i>-->
-                        <a href="#myModal" role="button" class="btn" data-toggle="modal">Add</a><i style="margin-right: 10px;" class="icon-large icon-plus "></i>
-                        <!--<div id="myModal">-->
-                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            {{ render(controller('PlatformCoreBundle:User:addUserForm')) }}
-                        </div>
+                    <a href="#myModal" role="button" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal">
+                        <i class="icon-plus"></i>&nbsp; Add
+                    </a>
+                    <!--<div id="myModal">-->
+                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        {{ render(controller('PlatformCoreBundle:User:addUserForm')) }}
                     </div>
                 </div>
                 <!-- /widget-header -->

@@ -333,7 +333,7 @@ textarea {
 
 .footer {
 	margin-top: 0;
-	
+
 	border-top: 1px solid #292929;
 }
 
@@ -1149,7 +1149,22 @@ color: #ab171e;
 .btn-github-alt i {
 color: #333;
 }
-
+.btn-header {
+	position: relative;
+	top: 5px;
+	display: inline-block;
+	min-width:50px;
+	margin-right: 5px;
+	font-size: 12px !important;
+	font-weight: 800;
+	color: white;
+	line-height: 18px;
+	vertical-align: middle;
+}
+.btn-header i {
+	color: white !important;
+	margin:0 !important;
+}
 .all-icons li { list-style:none;}
 
 .ML0 { margin-left:0}

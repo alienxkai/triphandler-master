@@ -35,7 +35,29 @@ class Config
      */
     private $configvalue;
 
+    /**
+     * @var Site
+     *
+     * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Site")
+     * @ORM\JoinColumn(name="SITEID", referencedColumnName="SITEID", nullable=false);
+     */
+    private $site;
 
+    /**
+     * @return mixed
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+
+    /**
+     * @param mixed $site
+     */
+    public function setSite($site)
+    {
+        $this->site = $site;
+    }
 
     /**
      * Get configid

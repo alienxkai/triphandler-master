@@ -28,12 +28,6 @@ class User
     private $usertype;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="USERROLEID", type="integer", nullable=false)
-     */
-
-    /**
      * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Userrole")
      * @ORM\JoinColumn(name="USERROLEID", referencedColumnName="USERROLEID", nullable=true);
      */
@@ -74,7 +68,27 @@ class User
      */
     private $secretanswer;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Site")
+     * @ORM\JoinColumn(name="SITEID", referencedColumnName="SITEID", nullable=false);
+     */
+    private $site;
 
+    /**
+     * @return mixed
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+
+    /**
+     * @param mixed $site
+     */
+    public function setSite($site)
+    {
+        $this->site = $site;
+    }
 
     /**
      * Get userid

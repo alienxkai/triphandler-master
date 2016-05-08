@@ -20,3 +20,11 @@ platform_user_insertpage:
     path:    /insert-user-form
     defaults: { _controller: PlatformCoreBundle:User:addUserForm }
 
+platform_user_updatepage:
+    path:    /update-user-form/{userid}
+    defaults: { _controller: PlatformCoreBundle:User:updateUserForm, userid = 0 }
+
+platform_user_delete:
+    path:    /delete-user/{userid}
+    defaults: {_controller: PlatformCoreBundle:User:deleteUser, userid = 0}
+

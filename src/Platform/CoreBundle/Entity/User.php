@@ -3,12 +3,15 @@
 namespace Platform\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
  *
  * @ORM\Table(name="core_user", indexes={@ORM\Index(name="FK_DE_ROLE", columns={"USERROLEID"}), @ORM\Index(name="FK_DE_TYPE", columns={"USERTYPEID"})})
  * @ORM\Entity
+ * @UniqueEntity(fields="mail", message="Cet addresse mail existe déjà...")
+ * @UniqueEntity(fields="username", message="Ce nom existe déjà...")
  */
 class User
 {
@@ -36,7 +39,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="USERNAME", type="string", length=50, nullable=true)
+     * @ORM\Column(name="USERNAME", type="string", length=50, nullable=true, unique = true)
      */
     private $username;
 
@@ -50,7 +53,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="MAIL", type="string", length=50, nullable=true)
+     * @ORM\Column(name="MAIL", type="string", length=50, nullable=true, unique = true)
      */
     private $mail;
 

@@ -17,13 +17,31 @@
             <div class="widget widget-table action-table">
                 <div class="widget-header"> <i class="icon-th-list"></i>
                     <h3> {%  block header_title %} User List {% endblock %} </h3>
-                    <a href="#myModal" role="button" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal">
+                    <a href="{{ path('platform_user_insertpage') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
                         <i class="icon-plus"></i>&nbsp; Add
                     </a>
-                    <!--<div id="myModal">-->
-                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        {{ render(controller('PlatformCoreBundle:User:addUserForm')) }}
+                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            </div>
+
+                        </div>
                     </div>
+
+
+                    <!--<a class="btn btn-primary btn-small pull-right" data-toggle="modal" data-target="#editForm"  href="#">
+                        <i class="fa fa-plus"></i>
+                        &nbsp;&nbsp;Ajouter
+                    </a>
+                    <div class="modal fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            </div>
+
+                        </div>
+
+                    </div>-->
+
                 </div>
                 <!-- /widget-header -->
                 <div class="widget-content">
@@ -48,8 +66,8 @@
                                         <td> {{ user.mail }} </td>
                                         <td> {{ user.userrole.userrolename }} </td>
                                         <td> {{ user.usertype.usertypename }} </td>
-                                        <td class="td-actions"><a href="javascript:;" class="btn btn-mini btn-success"><i class="btn-icon-only icon-ok"> </i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
+                                        <td class="td-actions"><a href="{{ path('platform_user_updatepage', {'userid': user.userid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#myModal"><i class="btn-icon-only icon-ok"> </i></a>
+                                            <a href="{{ path('platform_user_delete', {'userid': user.userid}) }}" onclick="confirm('Voulez-vous supprimer?');" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
                                     </tr>
                                 {% endfor %}
                             {% else %}

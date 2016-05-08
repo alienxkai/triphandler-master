@@ -1,17 +1,21 @@
 <!-- Modal -->
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Add new content {{ andrana }}</h3>
+    <h3 id="myModalLabel">Add new content</h3>
 </div>
+{{ form_start(form, {'attr': {'id': 'edit-profile' , 'class':'form-horizontal'}}) }}
 <div class="modal-body" style="height: 300px !important; ">
     <!--<p>One fine body…</p>-->
     <div class="tab-content">
-        <form id="edit-profile" class="form-horizontal">
+        <!--<form id="edit-profile" class="form-horizontal">-->
+
             <fieldset>
+                {{ form_errors(form) }}
                 <div class="control-group">
                     <label class="control-label" for="username">Username</label>
                     <div class="controls">
-                        <input type="text" class="span4 disabled" id="username" >
+                        <!--<input type="text" class="span4 disabled" id="username" >-->
+                        {{ form_widget(form.username, {'attr': {'class': 'span4', 'placeholder': 'Username'}}) }}
                         <!--<p class="help-block">Your username is for logging in and cannot be changed.</p>-->
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
@@ -20,7 +24,7 @@
                 <div class="control-group">
                     <label class="control-label" for="mail">Mail Adress</label>
                     <div class="controls">
-                        <input type="text" class="span4" id="mail" >
+                        {{ form_widget(form.mail, {'attr': {'class': 'span4', 'placeholder': 'Mail Address'}}) }}
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
 
@@ -28,7 +32,7 @@
                 <div class="control-group">
                     <label class="control-label" for="password">Password</label>
                     <div class="controls">
-                        <input type="password" class="span4" id="password" >
+                        {{ form_widget(form.password, {'attr': {'class': 'span4'}}) }}
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
 
@@ -36,36 +40,44 @@
                 <div class="control-group">
                     <label class="control-label" for="userrole">Role</label>
                     <div class="controls">
-                        <div class="btn-group btn-input clearfix">
-                            <select name="userrole" id="userrole">
-                                <option value="value1">Valeur 1</option>
-                                <option value="value2" selected>Valeur 2</option>
-                                <option value="value3">Valeur 3</option>
-                            </select>
-                        </div>
+                        {{ form_widget(form.userrole, {'attr': {'class': 'btn-group btn-input clearfix', 'placeholder' : 'Role'}}) }}
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
 
                 <div class="control-group">
                     <label class="control-label" for="usertype">Type</label>
                     <div class="controls">
-                        <div class="btn-group btn-input clearfix">
+                        <!--<div class="btn-group btn-input clearfix">
                             <select name="usertype" id="usertype">
                                 <option value="value1">Valeur 1</option>
                                 <option value="value2" selected>Valeur 2</option>
                                 <option value="value3">Valeur 3</option>
                             </select>
-                        </div>
+                        </div>-->
+                        {{ form_widget(form.usertype, {'attr': {'class': 'btn-group btn-input clearfix', 'placeholder' : 'Type'}}) }}
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
 
             </fieldset>
-        </form>
+        <!--</form>-->
+
     </div>
+
 </div>
 <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     <button class="btn btn-primary">Save changes</button>
 </div>
+{{ form_end(form) }}
+<!--<div>
+    <button type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;">
+        <i class="fa fa-save"></i>
+        Save
+    </button>
+    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">
+        <i class="fa fa-close"></i>
+        Close
+    </button>
+</div>-->
 
 

@@ -12,15 +12,22 @@ class UserFormType extends AbstractType
     {
         $builder
             ->add('username','text')
-            ->add('mail','email')
-            ->add('password','password')
+            ->add('mail','email',array('auto_initialize' => 'false'))
+            ->add('password', 'password',
+                array(
+                    'always_empty' => 'false'
+                )
+            )
             ->add('usertype', 'entity', array(
                 'class'    => 'Platform\CoreBundle\Entity\Usertype',
                 'property' => 'usertypename'))
             ->add('userrole','entity',array(
                 'class'    => 'Platform\CoreBundle\Entity\Userrole',
                 'property' => 'userrolename'
-            ));
+            ))
+            ->add('secretquestion','text')
+            ->add('secretanswer','text')
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

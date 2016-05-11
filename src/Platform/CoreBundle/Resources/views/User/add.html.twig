@@ -4,7 +4,7 @@
     <h3 id="myModalLabel">Add new content</h3>
 </div>
 {{ form_start(form, {'attr': {'id': 'edit-profile' , 'class':'form-horizontal'}}) }}
-<div class="modal-body" style="height: 300px !important; ">
+<div class="modal-body" style="height: auto !important; ">
     <!--<p>One fine body…</p>-->
     <div class="tab-content">
         <!--<form id="edit-profile" class="form-horizontal">-->
@@ -24,7 +24,7 @@
                 <div class="control-group">
                     <label class="control-label" for="mail">Mail Adress</label>
                     <div class="controls">
-                        {{ form_widget(form.mail, {'attr': {'class': 'span4', 'placeholder': 'Mail Address'}}) }}
+                        {{ form_widget(form.mail, {'attr': {'id':'email','class': 'span4', 'placeholder': 'Mail Address'}}) }}
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
 
@@ -55,6 +55,20 @@
                             </select>
                         </div>-->
                         {{ form_widget(form.usertype, {'attr': {'class': 'btn-group btn-input clearfix', 'placeholder' : 'Type'}}) }}
+                    </div> <!-- /controls -->
+                </div> <!-- /control-group -->
+
+                <div class="control-group">
+                    <label class="control-label" for="mail">Secret Question</label>
+                    <div class="controls">
+                        {{ form_widget(form.secretquestion, {'attr': {'class': 'span4'}}) }}
+                    </div> <!-- /controls -->
+                </div> <!-- /control-group -->
+
+                <div class="control-group">
+                    <label class="control-label" for="mail">Secret Answer</label>
+                    <div class="controls">
+                        {{ form_widget(form.secretanswer, {'attr': {'class': 'span4'}}) }}
                     </div> <!-- /controls -->
                 </div> <!-- /control-group -->
 

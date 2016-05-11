@@ -49,6 +49,10 @@ class UserController extends CoreController{
 
         if ($form->isValid()) {
 
+            $siteRepository = $em->getRepository('PlatformCoreBundle:Site');
+            $currentSite = $siteRepository->find(1);
+
+            $currentUser->setSite($currentSite);
             $em->persist($currentUser);
             $em->flush();
 
@@ -69,6 +73,8 @@ class UserController extends CoreController{
         $em = $this->getDoctrine()->getManager();
 
         $currentUser = $em->getRepository('PlatformCoreBundle:User')->find($userid);
+
+        dump($currentUser);
         
         if(!$currentUser){
             return $this->createNotFoundException("Unable to find the user");

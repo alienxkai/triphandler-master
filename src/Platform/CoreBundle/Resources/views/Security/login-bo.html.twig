@@ -10,9 +10,9 @@
                 <div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>{{ error.message }}</div>
             {% endif %}
             <form action="{{ path('platform_admin_login_check') }}" method="post">
-                <h1 style="text-align: center">Administatrion</h1>
+                <h1 style="text-align: center">Administration</h1>
                 <div class="login-fields">
-                    <p>Please provide your details</p>
+                    <br/>
                     <div class="field">
                         <label for="username">Username</label>
                         <input autocomplete="off" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username" class="login username-field" />

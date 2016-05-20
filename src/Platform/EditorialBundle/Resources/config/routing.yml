@@ -1,0 +1,3 @@
+platform_editorial_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PlatformEditorialBundle:Default:index }

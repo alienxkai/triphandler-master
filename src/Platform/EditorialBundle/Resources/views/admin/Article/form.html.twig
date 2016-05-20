@@ -1,0 +1,160 @@
+<!-- Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" class="modal-title">
+        <img src="/back-office/icons/16x16/page_edit.png"> <span>Edit article</span>
+        <ul class="nav nav-pills pull-right">
+            <li role="presentation" data-toggle="tab"><a href="#info">Basic</a></li>
+            <li role="presentation" data-toggle="tab"><a href="#content">Content</a></li>
+            <li role="presentation" data-toggle="tab"><a href="#meta">Meta</a></li>
+            <li role="presentation" data-toggle="tab"><a href="#images">Images</a></li>
+        </ul>
+    </h3>
+</div>
+<div class="modal-body" style="height: auto !important; ">
+    <!--<p>One fine body…</p>-->
+    <!--<form id="edit-profile" class="form-horizontal">-->
+    {{ form_start(form, {'attr': {'id': 'edit-article' , 'class':'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+
+        <div class="tab-pane active" id="info">
+            <div class="control-group">
+                <label class="control-label" for="username">Title</label>
+                <div class="controls">
+                    {{ form_widget(form.title, {'attr': {'class': 'span7', 'placeholder': 'Title'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+            <div class="control-group">
+                <label class="control-label" for="mail">Description</label>
+                <div class="controls">
+                    {{ form_widget(form.description, {'attr': {'id':'email','class': 'span7', 'placeholder': 'Description'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+            <div class="control-group">
+                <label class="control-label" for="userrole">Category</label>
+                <div class="controls">
+                    {{ form_widget(form.categoryid, {'attr': {'class': 'btn-group btn-input clearfix span7', 'placeholder' : 'Category'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+
+        </div>
+        <div class="tab-pane" id="content">
+            <div class="control-group">
+                <label class="control-label" for="mail">HTML Content</label>
+                <div class="controls">
+                    {{ form_widget(form.htmlcontent, {'attr': {'class': 'span7 htmlcontent', 'style': 'height:300px;'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+        </div>
+        <div class="tab-pane" id="meta">
+            <div class="control-group">
+                <label class="control-label" for="mail">SEO Title</label>
+                <div class="controls">
+                    {{ form_widget(form.seotitle, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+            <div class="control-group">
+                <label class="control-label" for="mail">Meta Description</label>
+                <div class="controls">
+                    {{ form_widget(form.metadescription, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+            <div class="control-group">
+                <label class="control-label" for="mail">Meta Open Graph</label>
+                <div class="controls">
+                    {{ form_widget(form.metaopengraph, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+            <div class="control-group">
+                <label class="control-label" for="mail">Meta Open Graph Title</label>
+                <div class="controls">
+                    {{ form_widget(form.metaopengraphtitle, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+        </div>
+        <div class="tab-pane" id="images">
+            <div class="control-group">
+                <label class="control-label">Image Size 1</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <div class="input-append">
+                            <input data-role="imagesize1" type="text" class="span5 m-wrap disabled" placeholder="Image size 1" disabled>
+                            <span class="btn btn-success btn-file">
+                                Browse{{ form_widget(form.imagebox1, {'attr': {'data-id':'imagesize1','class': 'file-btn'}}) }}
+                            </span>
+                        </div>
+                    </div>
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+
+            <div class="control-group">
+                <label class="control-label" for="mail">Image Atl 1</label>
+                <div class="controls">
+                    {{ form_widget(form.imagealt1, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+
+            <div class="control-group">
+                <label class="control-label" for="mail">Image Size 2</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <div class="input-append">
+                            <input data-role="imagesize2" type="text" class="span5 m-wrap disabled" placeholder="Image size 2" disabled>
+                            <span class="btn btn-success btn-file">
+                                Browse{{ form_widget(form.imagebox2, {'attr': {'data-id':'imagesize2','class': 'file-btn'}}) }}
+                            </span>
+                        </div>
+                    </div>
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+
+            <div class="control-group">
+                <label class="control-label" for="mail">Image Atl 2</label>
+                <div class="controls">
+                    {{ form_widget(form.imagealt2, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+
+            <div class="control-group">
+                <label class="control-label" for="mail">Image Size 3</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <div class="input-append">
+                            <input data-role="imagesize3" type="text" class="span5 m-wrap disabled" placeholder="Image size 3" disabled>
+                            <span class="btn btn-success btn-file">
+                                Browse{{ form_widget(form.imagebox3, {'attr': {'data-id':'imagesize3','class': 'file-btn'}}) }}
+                            </span>
+                        </div>
+                    </div>
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+
+            <div class="control-group">
+                <label class="control-label" for="mail">Image Atl 3</label>
+                <div class="controls">
+                    {{ form_widget(form.imagealt3, {'attr': {'class': 'span7'}}) }}
+                </div> <!-- /controls -->
+            </div> <!-- /control-group -->
+        </div>
+    {{ form_end(form) }}
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="submit" form="edit-article" class="btn btn-primary" />
+</div>
+<script>
+    $(function () {
+        $(".htmlcontent").sceditor({
+            plugins: 'bbcode',
+            style: "/back-office/minified/jquery.sceditor.default.min.css"
+        });
+        $('.file-btn').on('change', function(event) {
+            var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            $('input[data-role="'+ input.attr('data-id') +'"]').val(label);
+            input.trigger('fileselect', [numFiles, label]);
+        });
+    });
+</script>
+

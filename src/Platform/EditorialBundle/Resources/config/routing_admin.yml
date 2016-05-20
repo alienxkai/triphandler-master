@@ -1,0 +1,8 @@
+platform_editorial_article_admin:
+    path:     /articles
+    defaults: { _controller: PlatformEditorialBundle:Article:adminIndex }
+
+platform_editorial_article_form_admin:
+    path:     /articles-edit/{articleId}
+    defaults: { _controller: PlatformEditorialBundle:Article:adminForm, articleId:0 }
+

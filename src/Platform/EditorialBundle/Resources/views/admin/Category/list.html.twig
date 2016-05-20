@@ -1,6 +1,6 @@
 {% extends '/backoffice/index.html.twig' %}
 
-{% block page_title %} Admin Page - Trip Handlers - Articles{% endblock %}
+{% block page_title %} Admin Page - Trip Handlers - Categories{% endblock %}
 
 {% block maincontent %}
 
@@ -15,11 +15,11 @@
         <div class="span10">
             <div class="widget widget-table action-table">
                 <div class="widget-header"> <i class="icon-th-list"></i>
-                    <h3> {%  block header_title %} Articles {% endblock %} </h3>
-                    <a href="{{ path('platform_editorial_article_form_admin') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
+                    <h3> {%  block header_title %} Categories {% endblock %} </h3>
+                    <a href="{{ path('platform_editorial_category_form_admin') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
                         <i class="icon-plus"></i>&nbsp; Add
                     </a>
-                    <div id="myModal" class="modal modal-large fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
 
@@ -36,23 +36,21 @@
                             <th> Id </th>
                             <th> Title </th>
                             <th> Description </th>
-                            <th> Created On </th>
                             <th> Status </th>
                             <th class="td-actions"> </th>
                         </tr>
                         </thead>
                         <tbody>
 
-                            {% if articles is not empty %}
-                                {% for article in articles %}
+                            {% if categories is not empty %}
+                                {% for category in categories %}
                                     <tr>
-                                        <td> {{ article.contentid }} </td>
-                                        <td> {{ article.title }} </td>
-                                        <td> {{ article.description }} </td>
-                                        <td> {{ article.createdOn }} </td>
-                                        <td> {{ article.status }} </td>
-                                        <td class="td-actions"><a href="{{ path('platform_editorial_article_form_admin', {'articleId': article.contentid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#myModal"><i class="btn-icon-only icon-ok"> </i></a>
-                                            <a href="{{ path('platform_user_delete', {'userid': article.contentid}) }}" onclick="confirm('Voulez-vous supprimer?');" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
+                                        <td> {{ category.categoryid }} </td>
+                                        <td> {{ category.title }} </td>
+                                        <td> {{ category.description }} </td>
+                                        <td> {{ category.status }} </td>
+                                        <td class="td-actions"><a href="{{ path('platform_editorial_category_form_admin', {'categoryId': category.categoryid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#myModal"><i class="btn-icon-only icon-ok"> </i></a>
+                                            <a href="{{ path('platform_user_delete', {'userid': category.categoryid}) }}" onclick="confirm('Voulez-vous supprimer?');" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
                                     </tr>
                                 {% endfor %}
                             {% else %}

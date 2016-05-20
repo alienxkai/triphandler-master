@@ -6,39 +6,32 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ArticleFormType extends AbstractType
+class CategoryFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categoryid', 'entity', array(
+            ->add('parentid', 'entity', array(
                 'class'    => 'Platform\EditorialBundle\Entity\Category',
                 'property' => 'title'))
             ->add('title','text')
             ->add('description','textarea')
             ->add('seotitle','text')
             ->add('metadescription','textarea')
-            ->add('htmlcontent','textarea')
-            ->add('metaopengraph','text')
-            ->add('metaopengraphtitle','text')
-            ->add('imagebox1','file')
-            ->add('imagebox2','file')
-            ->add('imagebox3','file')
-            ->add('imagealt1','text')
-            ->add('imagealt2','text')
-            ->add('imagealt3','text')
+            ->add('orderby','number')
+            ->add('status','text')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Platform\EditorialBundle\Entity\Article'
+            'data_class' => 'Platform\EditorialBundle\Entity\Category'
         ));
     }
 
     public function getName()
     {
-        return 'platform_editorial_bundle_article_type';
+        return 'platform_editorial_bundle_category_type';
     }
 }

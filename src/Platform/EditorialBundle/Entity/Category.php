@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Category
  *
  * @ORM\Table(name="editorial_category", indexes={@ORM\Index(name="FK_CATEGORY_PARENT", columns={"PARENTID"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Platform\EditorialBundle\Repository\CategoryRepository")
  */
 class Category
 {

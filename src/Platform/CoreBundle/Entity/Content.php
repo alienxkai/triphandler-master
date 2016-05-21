@@ -11,23 +11,31 @@ namespace Platform\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Doctrine\ORM\Mapping\InheritanceType;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
 
 /**
  * Content
  *
  * @ORM\Table(name="core_content")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Platform\CoreBundle\Repository\ContentRepository")
+ * @InheritanceType("JOINED")
+ * @DiscriminatorColumn(name="CONTENTTYPEID", type="integer")
+ * @DiscriminatorMap({
+ *     "1" = "Platform\EditorialBundle\Entity\Article"
+ * })
  */
-class Content
+abstract class Content
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="SITEID", type="integer")
+     * @ORM\Column(name="CONTENTID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $contentid;
+    protected $contentid;
 
     /**
      * @var ContentType
@@ -35,48 +43,48 @@ class Content
      * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\ContentType")
      * @ORM\JoinColumn(name="CONTENTTYPEID", referencedColumnName="CONTENTTYPEID", nullable=true);
      */
-    private $contenttype;
+    protected $contenttype;
 
     /**
      * @var string
      *
      * @ORM\Column(name="CREATEBY", type="string", length=20, nullable=false)
      */
-    private $createdBy;
+    protected $createdBy;
 
     /**
      * @var DateTime
      *
      * @ORM\Column(name="CREATEDON", type="date", nullable=false)
      */
-    private $createdOn;
+    protected $createdOn;
 
     /**
      * @var string
      *
      * @ORM\Column(name="UPDATEDBY", type="string", length=20, nullable=true)
      */
-    private $updatedBy;
+    protected $updatedBy;
 
     /**
      * @var DateTime
      *
      * @ORM\Column(name="UPDATEDON", type="date", nullable=true)
      */
-    private $updatedOn;
+    protected $updatedOn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="STATUS", type="string", length=20, nullable=false)
+     * @ORM\Column(name="STATUT", type="string", length=20, nullable=false)
      */
-    private $status;
+    protected $status;
 
     /**
      * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Site")
      * @ORM\JoinColumn(name="SITEID", referencedColumnName="SITEID", nullable=false);
      */
-    private $site;
+    protected $site;
 
     /**
      * @return mixed

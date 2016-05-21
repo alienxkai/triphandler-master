@@ -66,9 +66,16 @@
                                         <td> {{ user.mail }} </td>
                                         <td> {{ user.userrole.userrolename }} </td>
                                         <td> {{ user.usertype.usertypename }} </td>
-                                        <td class="td-actions"><a href="{{ path('platform_user_updatepage', {'userid': user.userid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#myModal"><i class="btn-icon-only icon-ok"> </i></a>
+                                        <td class="td-actions"><a href="{{ path('platform_user_updatepage', {'userid': user.userid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#editModal-{{ user.userid }}"><i class="btn-icon-only icon-ok"> </i></a>
                                             <a href="{{ path('platform_user_delete', {'userid': user.userid}) }}" onclick="confirm('Voulez-vous supprimer?');" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
                                     </tr>
+                                    <div id="editModal-{{ user.userid }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             {% else %}
                                 <tr >

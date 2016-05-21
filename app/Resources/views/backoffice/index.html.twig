@@ -11,6 +11,7 @@
     <link href="/back-office/css/font-awesome.css" rel="stylesheet">
     <link href="/back-office/css/style.css" rel="stylesheet">
     <link href="/back-office/css/pages/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="/back-office/minified/themes/office-toolbar.min.css" type="text/css" media="all" />
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -61,16 +62,10 @@
                         <a href="index.html"><i class="icon-dashboard"></i><span>Dashboard</span> </a>
                     </li>
                     <li>
-                        <a href="{{ path('platform_admin_user') }}"><i class="icon-list-alt"></i><span>User Management</span> </a>
+                        <a href="{{ path('platform_admin_user') }}"><img src="/back-office/icons/32x32/group.png"><span>User</span> </a>
                     </li>
                     <li>
-                        <a href="guidely.html"><i class="icon-facetime-video"></i><span>App Tour</span> </a>
-                    </li>
-                    <li>
-                        <a href="charts.html"><i class="icon-bar-chart"></i><span>Charts</span> </a>
-                    </li>
-                    <li>
-                        <a href="shortcodes.html"><i class="icon-code"></i><span>Shortcodes</span> </a>
+                        <a href="#"><img src="/back-office/icons/32x32/newspaper.png"><span>Editorial</span> </a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
@@ -205,20 +200,6 @@
         <!-- /main-inner -->
     </div>
     <!-- /main -->
-    <div class="footer">
-        <div class="footer-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="pull-right"> &copy; 2016 <a href="http://www.egrappler.com/">Trip Handlers</a>. </div>
-                    <!-- /span12 -->
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /footer-inner -->
-    </div>
-    <!-- /footer -->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -245,6 +226,7 @@
     <script src="/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
     <script src="/assets/plugins/boostrap-form-wizard/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
     <script src="/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/back-office/minified/jquery.sceditor.bbcode.min.js" type="text/javascript"></script>
 
 </body>
 </html>

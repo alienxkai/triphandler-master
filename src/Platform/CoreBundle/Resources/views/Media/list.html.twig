@@ -1,13 +1,13 @@
 {% extends '/backoffice/editorial/layout.html.twig' %}
 
-{% block page_title %} Admin Page - Trip Handlers - Categories{% endblock %}
+{% block page_title %} Admin Page - Trip Handlers - Medias{% endblock %}
 
 {% block maincontent %}
 <div class="span10">
     <div class="widget widget-table action-table">
         <div class="widget-header"> <i class="icon-th-list"></i>
-            <h3> {%  block header_title %} Categories {% endblock %} </h3>
-            <a href="{{ path('platform_editorial_category_form_admin') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
+            <h3> {%  block header_title %} Medias {% endblock %} </h3>
+            <a href="{{ path('platform_admin_media_form') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
                 <i class="icon-plus"></i>&nbsp; Add
             </a>
             <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -25,31 +25,29 @@
                 <thead>
                 <tr>
                     <th> Id </th>
-                    <th> Title </th>
-                    <th> Description </th>
-                    <th> Status </th>
-                    <th class="td-actions"> </th>
+                    <th> Name </th>
+                    <th> Alt </th>
+                    <th class="td-actions"> Actions </th>
                 </tr>
                 </thead>
                 <tbody>
 
-                    {% if categories is not empty %}
-                        {% for category in categories %}
+                    {% if medias is not empty %}
+                        {% for media in medias %}
                             <tr>
-                                <td> {{ category.categoryid }} </td>
-                                <td> {{ category.title }} </td>
-                                <td> {{ category.description }} </td>
-                                <td> {{ category.status }} </td>
+                                <td> {{ media.mediaid }} </td>
+                                <td> {{ media.title }} </td>
+                                <td> {{ media.alt }} </td>
                                 <td class="td-actions">
-                                    <a href="{{ path('platform_editorial_category_form_admin', {'categoryId': category.categoryid}) }}" data-toggle="modal" data-target="#editModal-{{ category.categoryid }}">
+                                    <a href="{{ path('platform_admin_media_form', {'mediaid': media.mediaid}) }}" data-toggle="modal" data-target="#editModal-{{ media.mediaid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': category.categoryid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_user_delete', {'userid': media.mediaid}) }}" onclick="confirm('Voulez-vous supprimer?');">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>
                             </tr>
-                            <div id="editModal-{{ category.categoryid }}" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div id="editModal-{{ media.mediaid }}" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     </div>
@@ -58,7 +56,7 @@
                         {% endfor %}
                     {% else %}
                         <tr >
-                            <td colspan="6" class="text-center">No items yet</td>
+                            <td colspan="4" class="text-center">No items yet</td>
                         </tr>
                     {% endif %}
                 </tbody>

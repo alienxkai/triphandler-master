@@ -29,6 +29,14 @@ class Category
     private $parentid;
 
     /**
+     * @var Banner
+     *
+     * @ORM\ManyToOne(targetEntity="Platform\EditorialBundle\Entity\Banner")
+     * @ORM\JoinColumn(name="BANNERID", referencedColumnName="BANNERID", nullable=true);
+     */
+    private $bannerid;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="TITLE", type="string", length=128, nullable=true)
@@ -100,6 +108,22 @@ class Category
     public function setParentid($parentid)
     {
         $this->parentid = $parentid;
+    }
+
+    /**
+     * @return Banner
+     */
+    public function getBannerid()
+    {
+        return $this->bannerid;
+    }
+
+    /**
+     * @param Banner $bannerid
+     */
+    public function setBannerid($bannerid)
+    {
+        $this->bannerid = $bannerid;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Platform\EditorialBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Platform\CoreBundle\Entity\Content;
 use Platform\CoreBundle\Entity\ContentType;
+use Platform\CoreBundle\Entity\Media;
 use Platform\CoreBundle\Entity\Site;
 
 /**
@@ -82,62 +83,32 @@ class Article extends Content
     private $metaopengraphtitle;
 
     /**
-     * @var string
+     * @var Media
      *
-     * @ORM\Column(name="IMAGEBOX1", type="string", length=256, nullable=true)
+     * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Media")
+     * @ORM\JoinColumn(name="MEDIAID1", referencedColumnName="MEDIAID", nullable=true);
      */
     private $imagebox1;
 
     /**
-     * @var string
+     * @var Media
      *
-     * @ORM\Column(name="IMAGEBOX2", type="string", length=256, nullable=true)
+     * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Media")
+     * @ORM\JoinColumn(name="MEDIAID2", referencedColumnName="MEDIAID", nullable=true);
      */
     private $imagebox2;
 
     /**
-     * @var string
+     * @var Media
      *
-     * @ORM\Column(name="IMAGEBOX3", type="string", length=256, nullable=true)
+     * @ORM\ManyToOne(targetEntity="Platform\CoreBundle\Entity\Media")
+     * @ORM\JoinColumn(name="MEDIAID3", referencedColumnName="MEDIAID", nullable=true);
      */
     private $imagebox3;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="IMAGEALT1", type="string", length=256, nullable=true)
-     */
-    private $imagealt1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="IMAGEALT2", type="string", length=256, nullable=true)
-     */
-    private $imagealt2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="IMAGEALT3", type="string", length=256, nullable=true)
-     */
-    private $imagealt3;
-
     public function __construct()
     {
-
-        $contentType = new ContentType();
-        $contentType->setContenttypeid(1);
-        $contentType->setTypename('Article');
-        $contentType->setSeotypename('article');
-        $contentType->setDescription('Content Article');
-
-        $this->contenttype = $contentType;
-
-        $site = new Site();
-        $site->setSiteid(1);
-
-        $this->setSite($site);
+        $this->createdOn = new \DateTime();
     }
 
     /**
@@ -285,7 +256,7 @@ class Article extends Content
     }
 
     /**
-     * @return string
+     * @return Media
      */
     public function getImagebox1()
     {
@@ -293,7 +264,7 @@ class Article extends Content
     }
 
     /**
-     * @param string $imagebox1
+     * @param Media $imagebox1
      */
     public function setImagebox1($imagebox1)
     {
@@ -301,7 +272,7 @@ class Article extends Content
     }
 
     /**
-     * @return string
+     * @return Media
      */
     public function getImagebox2()
     {
@@ -309,7 +280,7 @@ class Article extends Content
     }
 
     /**
-     * @param string $imagebox2
+     * @param Media $imagebox2
      */
     public function setImagebox2($imagebox2)
     {
@@ -317,7 +288,7 @@ class Article extends Content
     }
 
     /**
-     * @return string
+     * @return Media
      */
     public function getImagebox3()
     {
@@ -325,59 +296,11 @@ class Article extends Content
     }
 
     /**
-     * @param string $imagebox3
+     * @param Media $imagebox3
      */
     public function setImagebox3($imagebox3)
     {
         $this->imagebox3 = $imagebox3;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImagealt1()
-    {
-        return $this->imagealt1;
-    }
-
-    /**
-     * @param string $imagealt1
-     */
-    public function setImagealt1($imagealt1)
-    {
-        $this->imagealt1 = $imagealt1;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImagealt2()
-    {
-        return $this->imagealt2;
-    }
-
-    /**
-     * @param string $imagealt2
-     */
-    public function setImagealt2($imagealt2)
-    {
-        $this->imagealt2 = $imagealt2;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImagealt3()
-    {
-        return $this->imagealt3;
-    }
-
-    /**
-     * @param string $imagealt3
-     */
-    public function setImagealt3($imagealt3)
-    {
-        $this->imagealt3 = $imagealt3;
     }
 
 }

@@ -3,91 +3,66 @@
 {% block page_title %} Admin Page - Trip Handlers - User Management {% endblock %}
 
 {% block maincontent %}
-
-    <div class="row">
-        <div class="span2">
-            <a href="javascript:;" class="main-left">Apps</a>
-            <a href="javascript:;" class="main-left">Bookmarks</a>
-            <a href="javascript:;" class="main-left">Reports</a>
-            <a href="javascript:;" class="main-left">Comments</a>
-            <a href="javascript:;" class="main-left">Users</a>
-        </div>
-        <!-- /span2 -->
-        <div class="span10">
-            <div class="widget widget-table action-table">
-                <div class="widget-header"> <i class="icon-th-list"></i>
-                    <h3> {%  block header_title %} User List {% endblock %} </h3>
-                    <a href="{{ path('platform_user_insertpage') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
-                        <i class="icon-plus"></i>&nbsp; Add
-                    </a>
-                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            </div>
-
-                        </div>
+<div class="span10">
+    <div class="widget widget-table action-table">
+        <div class="widget-header"> <i class="icon-th-list"></i>
+            <h3> {%  block header_title %} User List {% endblock %} </h3>
+            <a href="{{ path('platform_user_insertpage') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
+                <i class="icon-plus"></i>&nbsp; Add
+            </a>
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
                     </div>
 
-
-                    <!--<a class="btn btn-primary btn-small pull-right" data-toggle="modal" data-target="#editForm"  href="#">
-                        <i class="fa fa-plus"></i>
-                        &nbsp;&nbsp;Ajouter
-                    </a>
-                    <div class="modal fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            </div>
-
-                        </div>
-
-                    </div>-->
-
                 </div>
-                <!-- /widget-header -->
-                <div class="widget-content">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                        <tr>
-                            <th> Id </th>
-                            <th> Username </th>
-                            <th> Mail address </th>
-                            <th> Role </th>
-                            <th> Type </th>
-                            <th class="td-actions"> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                            {% if users is not empty %}
-                                {% for user in users %}
-                                    <tr>
-                                        <td> {{ user.userid }} </td>
-                                        <td> {{ user.username }} </td>
-                                        <td> {{ user.mail }} </td>
-                                        <td> {{ user.userrole.userrolename }} </td>
-                                        <td> {{ user.usertype.usertypename }} </td>
-                                        <td class="td-actions"><a href="{{ path('platform_user_updatepage', {'userid': user.userid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#editModal-{{ user.userid }}"><i class="btn-icon-only icon-ok"> </i></a>
-                                            <a href="{{ path('platform_user_delete', {'userid': user.userid}) }}" onclick="confirm('Voulez-vous supprimer?');" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
-                                    </tr>
-                                    <div id="editModal-{{ user.userid }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content"></div>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            {% else %}
-                                <tr >
-                                    <td colspan="6" class="text-center">No items yet</td>
-                                </tr>
-                            {% endif %}
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /widget-content -->
             </div>
-            <!-- /widget -->
+
         </div>
-        <!-- /span9 -->
+        <!-- /widget-header -->
+        <div class="widget-content">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Username </th>
+                    <th> Mail address </th>
+                    <th> Role </th>
+                    <th> Type </th>
+                    <th class="td-actions"> </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    {% if users is not empty %}
+                        {% for user in users %}
+                            <tr>
+                                <td> {{ user.userid }} </td>
+                                <td> {{ user.username }} </td>
+                                <td> {{ user.mail }} </td>
+                                <td> {{ user.userrole.userrolename }} </td>
+                                <td> {{ user.usertype.usertypename }} </td>
+                                <td class="td-actions"><a href="{{ path('platform_user_updatepage', {'userid': user.userid}) }}" class="btn btn-mini btn-success" data-toggle="modal" data-target="#editModal-{{ user.userid }}"><i class="btn-icon-only icon-ok"> </i></a>
+                                    <a href="{{ path('platform_user_delete', {'userid': user.userid}) }}" onclick="confirm('Voulez-vous supprimer?');" class="btn btn-danger btn-mini"><i class="btn-icon-only icon-remove"> </i></a></td>
+                            </tr>
+                            <div id="editModal-{{ user.userid }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <tr >
+                            <td colspan="6" class="text-center">No items yet</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /widget-content -->
     </div>
+    <!-- /widget -->
+</div>
+<!-- /span10 -->
 
 {% endblock %}

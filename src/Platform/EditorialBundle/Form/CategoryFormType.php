@@ -13,13 +13,28 @@ class CategoryFormType extends AbstractType
         $builder
             ->add('parentid', 'entity', array(
                 'class'    => 'Platform\EditorialBundle\Entity\Category',
-                'property' => 'title'))
+                'property' => 'title',
+                'placeholder' => 'Choose an option',
+                'required' => false)
+            )
+            ->add('bannerid', 'entity', array(
+                'class'    => 'Platform\EditorialBundle\Entity\Banner',
+                'property' => 'title')
+            )
             ->add('title','text')
             ->add('description','textarea')
             ->add('seotitle','text')
             ->add('metadescription','textarea')
             ->add('orderby','number')
-            ->add('status','text')
+            ->add('status', 'choice', array(
+                'multiple' => false,
+                'expanded' => false,
+                'choices'  => array(
+                    'o' => 'Online',
+                    'n' => 'Offline',
+                    'w' => 'Waiting',
+                ))
+            )
         ;
     }
 

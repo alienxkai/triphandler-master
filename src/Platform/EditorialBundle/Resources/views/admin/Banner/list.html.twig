@@ -1,13 +1,13 @@
 {% extends '/backoffice/editorial/layout.html.twig' %}
 
-{% block page_title %} Admin Page - Trip Handlers - Categories{% endblock %}
+{% block page_title %} Admin Page - Trip Handlers - Banners{% endblock %}
 
 {% block maincontent %}
 <div class="span10">
     <div class="widget widget-table action-table">
         <div class="widget-header"> <i class="icon-th-list"></i>
-            <h3> {%  block header_title %} Categories {% endblock %} </h3>
-            <a href="{{ path('platform_editorial_category_form_admin') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
+            <h3> {%  block header_title %} Banners {% endblock %} </h3>
+            <a href="{{ path('platform_editorial_banner_form_admin') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
                 <i class="icon-plus"></i>&nbsp; Add
             </a>
             <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -27,29 +27,27 @@
                     <th> Id </th>
                     <th> Title </th>
                     <th> Description </th>
-                    <th> Status </th>
                     <th class="td-actions"> </th>
                 </tr>
                 </thead>
                 <tbody>
 
-                    {% if categories is not empty %}
-                        {% for category in categories %}
+                    {% if banners is not empty %}
+                        {% for banner in banners %}
                             <tr>
-                                <td> {{ category.categoryid }} </td>
-                                <td> {{ category.title }} </td>
-                                <td> {{ category.description }} </td>
-                                <td> {{ category.status }} </td>
+                                <td> {{ banner.bannerid }} </td>
+                                <td> {{ banner.title }} </td>
+                                <td> {{ banner.description }} </td>
                                 <td class="td-actions">
-                                    <a href="{{ path('platform_editorial_category_form_admin', {'categoryId': category.categoryid}) }}" data-toggle="modal" data-target="#editModal-{{ category.categoryid }}">
+                                    <a href="{{ path('platform_editorial_banner_form_admin', {'bannerId': banner.bannerid}) }}" data-toggle="modal" data-target="#editModal-{{ banner.bannerid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': category.categoryid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_user_delete', {'userid': banner.bannerid}) }}" onclick="confirm('Voulez-vous supprimer?');">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>
                             </tr>
-                            <div id="editModal-{{ category.categoryid }}" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div id="editModal-{{ banner.bannerid }}" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     </div>
@@ -58,7 +56,7 @@
                         {% endfor %}
                     {% else %}
                         <tr >
-                            <td colspan="6" class="text-center">No items yet</td>
+                            <td colspan="4" class="text-center">No items yet</td>
                         </tr>
                     {% endif %}
                 </tbody>

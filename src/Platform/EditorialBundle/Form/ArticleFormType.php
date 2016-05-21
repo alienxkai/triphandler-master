@@ -21,12 +21,18 @@ class ArticleFormType extends AbstractType
             ->add('htmlcontent','textarea')
             ->add('metaopengraph','text')
             ->add('metaopengraphtitle','text')
-            ->add('imagebox1','file')
-            ->add('imagebox2','file')
-            ->add('imagebox3','file')
-            ->add('imagealt1','text')
-            ->add('imagealt2','text')
-            ->add('imagealt3','text')
+            ->add('imagebox1', 'entity', array(
+                'class'    => 'Platform\CoreBundle\Entity\Media',
+                'property' => 'title')
+            )
+            ->add('imagebox2', 'entity', array(
+                'class'    => 'Platform\CoreBundle\Entity\Media',
+                'property' => 'title')
+            )
+            ->add('imagebox3', 'entity', array(
+                'class'    => 'Platform\CoreBundle\Entity\Media',
+                'property' => 'title')
+            )
         ;
     }
 

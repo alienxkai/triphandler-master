@@ -14,3 +14,11 @@ platform_editorial_category_form_admin:
     path:     /categories-edit/{categoryId}
     defaults: { _controller: PlatformEditorialBundle:Category:adminForm, categoryId:0 }
 
+platform_editorial_banner_admin:
+    path:     /banners
+    defaults: { _controller: PlatformEditorialBundle:Banner:adminIndex }
+
+platform_editorial_banner_form_admin:
+    path:     /banner-edit/{bannerId}
+    defaults: { _controller: PlatformEditorialBundle:Banner:adminForm, bannerId:0 }
+

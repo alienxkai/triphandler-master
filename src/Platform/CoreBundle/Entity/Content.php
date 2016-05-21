@@ -10,7 +10,6 @@ namespace Platform\CoreBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Doctrine\ORM\Mapping\InheritanceType;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
@@ -53,9 +52,9 @@ abstract class Content
     protected $createdBy;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      *
-     * @ORM\Column(name="CREATEDON", type="date", nullable=false)
+     * @ORM\Column(name="CREATEDON", type="datetime", nullable=false)
      */
     protected $createdOn;
 
@@ -67,9 +66,9 @@ abstract class Content
     protected $updatedBy;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      *
-     * @ORM\Column(name="UPDATEDON", type="date", nullable=true)
+     * @ORM\Column(name="UPDATEDON", type="datetime", nullable=true)
      */
     protected $updatedOn;
 
@@ -119,7 +118,7 @@ abstract class Content
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
     public function getUpdatedOn()
     {
@@ -127,7 +126,7 @@ abstract class Content
     }
 
     /**
-     * @param DateTime $updatedOn
+     * @param \DateTime $updatedOn
      */
     public function setUpdatedOn($updatedOn)
     {
@@ -151,7 +150,7 @@ abstract class Content
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
     public function getCreatedOn()
     {
@@ -159,7 +158,7 @@ abstract class Content
     }
 
     /**
-     * @param DateTime $createdOn
+     * @param \DateTime $createdOn
      */
     public function setCreatedOn($createdOn)
     {

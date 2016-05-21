@@ -1,0 +1,15 @@
+{% extends '/backoffice/index.html.twig' %}
+
+{% block page_title %} Admin Page - Trip Handlers - Editorial{% endblock %}
+
+
+{% block leftmenu %}
+    <div class="span2">
+        <a href="{{ path('platform_editorial_category_admin') }}" class="main-left"><img src="/back-office/icons/32x32/folder.png"> <span>Category</span></a>
+        <a href="{{ path('platform_editorial_article_admin') }}" class="main-left"><img src="/back-office/icons/32x32/page_edit.png"> <span>Article</span></a>
+        <a href="{{ path('platform_admin_tag') }}" class="main-left"><img src="/back-office/icons/32x32/tag_blue.png"> <span>Tag</span></a>
+        <a href="{{ path('platform_editorial_banner_admin') }}" class="main-left"><img src="/back-office/icons/32x32/layout_header.png"> <span>Banner</span></a>
+        <a href="{{ path('platform_admin_media') }}" class="main-left"><img src="/back-office/icons/32x32/pictures.png"> <span>Media</span></a>
+    </div>
+    <!-- /span2 -->
+{% endblock %}

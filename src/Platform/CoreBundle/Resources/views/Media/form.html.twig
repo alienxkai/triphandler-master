@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" class="modal-title">
+        <img src="/back-office/icons/16x16/page_edit.png"> <span>Edit media</span>
+    </h3>
+</div>
+<div class="modal-body" style="height: auto !important; ">
+    {{ form_start(form, {'attr': {'id': 'edit-media' , 'class':'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+        <div class="control-group">
+            <label class="control-label" for="username">Name</label>
+            <div class="controls">
+                {{ form_widget(form.title, {'attr': {'class': 'span4', 'placeholder': 'Name'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="username">Alt</label>
+            <div class="controls">
+                {{ form_widget(form.alt, {'attr': {'class': 'span4', 'placeholder': 'Alt'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="username">File</label>
+            <div class="controls">
+                <div class="input-group">
+                    <div class="input-append">
+                        <input data-role="fileinput" type="text" class="span3 m-wrap disabled" placeholder="File" disabled>
+                        <span class="btn btn-success btn-file">
+                            Browse{{ form_widget(form.file, {'attr': {'data-id':'fileinput','class': 'file-btn'}}) }}
+                        </span>
+                    </div>
+                </div>
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+    {{ form_end(form) }}
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="submit" form="edit-media" class="btn btn-primary" value="Save" />
+</div>
+<script>
+    $(function () {
+        $(".htmlcontent").sceditor({
+            plugins: 'bbcode',
+            style: "/back-office/minified/jquery.sceditor.default.min.css"
+        });
+        $('.file-btn').on('change', function(event) {
+            var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            $('input[data-role="'+ input.attr('data-id') +'"]').val(label);
+            input.trigger('fileselect', [numFiles, label]);
+        });
+    });
+</script>
+

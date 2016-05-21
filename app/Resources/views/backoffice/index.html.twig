@@ -65,7 +65,7 @@
                         <a href="{{ path('platform_admin_user') }}"><img src="/back-office/icons/32x32/group.png"><span>User</span> </a>
                     </li>
                     <li>
-                        <a href="#"><img src="/back-office/icons/32x32/newspaper.png"><span>Editorial</span> </a>
+                        <a href="{{ path('platform_editorial_category_admin') }}"><img src="/back-office/icons/32x32/newspaper.png"><span>Editorial</span> </a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
@@ -88,8 +88,8 @@
     <div class="main">
         <div class="main-inner">
             <div class="container">
-                {% block maincontent %}
                 <div class="row">
+                    {% block leftmenu %}
                     <div class="span2">
                         <a href="javascript:;" class="main-left">Apps</a>
                         <a href="javascript:;" class="main-left">Bookmarks</a>
@@ -97,7 +97,9 @@
                         <a href="javascript:;" class="main-left">Comments</a>
                         <a href="javascript:;" class="main-left">Users</a>
                     </div>
+                    {% endblock %}
                     <!-- /span2 -->
+                    {% block maincontent %}
                     <div class="span10">
                         <div class="widget widget-table action-table">
                             <div class="widget-header"> <i class="icon-th-list"></i>
@@ -190,9 +192,9 @@
                         </div>
                         <!-- /widget -->
                     </div>
-                    <!-- /span9 -->
+                    <!-- /span10 -->
+                    {% endblock %}
                 </div>
-                {% endblock %}
                 <!-- /row -->
             </div>
             <!-- /container -->

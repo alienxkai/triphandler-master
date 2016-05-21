@@ -28,3 +28,19 @@ platform_user_delete:
     path:    /delete-user/{userid}
     defaults: {_controller: PlatformCoreBundle:User:deleteUser, userid = 0}
 
+platform_admin_tag:
+    path:     /tags
+    defaults: { _controller: PlatformCoreBundle:Core:adminTag }
+
+platform_admin_tag_form:
+    path:    /tag-edit/{tagid}
+    defaults: { _controller: PlatformCoreBundle:Core:adminTagForm, tagid = 0 }
+
+platform_admin_media:
+    path:     /medias
+    defaults: { _controller: PlatformCoreBundle:Core:adminMedia }
+
+platform_admin_media_form:
+    path:    /media-edit/{mediaid}
+    defaults: { _controller: PlatformCoreBundle:Core:adminMediaForm, mediaid = 0 }
+

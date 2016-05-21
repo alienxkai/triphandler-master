@@ -39,7 +39,7 @@ class ArticleController extends Controller
         $article = new Article();
 
         $article->setCreatedBy(1);
-        $article->setCreatedOn(new Date());
+        $article->setCreatedOn(new \DateTime());
         $article->setStatus('o');
 
         $em = $this->getDoctrine()->getManager();
@@ -47,7 +47,7 @@ class ArticleController extends Controller
         if($articleId != 0)
         {
             $article = $em->getRepository('PlatformEditorialBundle:Article')->find($articleId);
-            $article->setUpdatedOn(new Date());
+            $article->setUpdatedOn(new \DateTime());
             $article->setUpdatedBy(1);
         }
 
@@ -63,7 +63,12 @@ class ArticleController extends Controller
             $siteRepository = $em->getRepository('PlatformCoreBundle:Site');
             $currentSite = $siteRepository->find(1);
 
+            $contentTypeRepository = $em->getRepository('PlatformCoreBundle:ContentType');
+            $contentType = $contentTypeRepository->find(1);
+
+            $article->setContenttype($contentType);
             $article->setSite($currentSite);
+
             $em->persist($article);
             $em->flush();
 

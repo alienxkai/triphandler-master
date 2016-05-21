@@ -76,7 +76,7 @@ abstract class Content
     /**
      * @var string
      *
-     * @ORM\Column(name="STATUT", type="string", length=20, nullable=false)
+     * @ORM\Column(name="STATUS", type="string", length=20, nullable=false)
      */
     protected $status;
 

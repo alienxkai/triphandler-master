@@ -44,7 +44,7 @@
                                     <a href="{{ path('platform_editorial_category_form_admin', {'categoryId': category.categoryid}) }}" data-toggle="modal" data-target="#editModal-{{ category.categoryid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': category.categoryid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_editorial_category_delete_admin', {'categoryId': category.categoryid}) }}" class="be-confirmed">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>

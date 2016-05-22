@@ -72,4 +72,22 @@ class CategoryController extends Controller
         );
     }
 
+    public function adminDeleteAction(Request $request, $categoryId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $currentCategory= $em->getRepository('PlatformEditorialBundle:Category')->find($categoryId);
+
+        if(!$currentCategory){
+            return $this->createNotFoundException("Unable to find the Category");
+        }
+
+        $em->remove($currentCategory);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'Category removed successfully.');
+
+        return $this->redirectToRoute('platform_editorial_category_admin');
+    }
+
 }

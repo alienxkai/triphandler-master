@@ -37,10 +37,10 @@
                                 <td> {{ tag.tagid }} </td>
                                 <td> {{ tag.name }} </td>
                                 <td class="td-actions">
-                                    <a href="{{ path('platform_admin_tag_form', {'tagId': tag.tagid}) }}" data-toggle="modal" data-target="#editModal-{{ tag.tagid }}">
+                                    <a href="{{ path('platform_admin_tag_form', {'tagid': tag.tagid}) }}" data-toggle="modal" data-target="#editModal-{{ tag.tagid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': tag.tagid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_admin_tag_delete', {'tagid': tag.tagid}) }}" class="be-confirmed">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>

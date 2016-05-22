@@ -42,7 +42,7 @@
                                     <a href="{{ path('platform_editorial_banner_form_admin', {'bannerId': banner.bannerid}) }}" data-toggle="modal" data-target="#editModal-{{ banner.bannerid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': banner.bannerid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_editorial_banner_delete_admin', {'bannerId': banner.bannerid}) }}" class="be-confirmed">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>

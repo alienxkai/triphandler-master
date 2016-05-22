@@ -46,7 +46,7 @@
                                     <a href="{{ path('platform_editorial_article_form_admin', {'articleId': article.contentid}) }}" data-toggle="modal" data-target="#editModal-{{ article.contentid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': article.contentid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_editorial_article_delete_admin', {'articleId': article.contentid}) }}"  class="be-confirmed">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>

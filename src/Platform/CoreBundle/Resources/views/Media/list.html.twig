@@ -42,7 +42,7 @@
                                     <a href="{{ path('platform_admin_media_form', {'mediaid': media.mediaid}) }}" data-toggle="modal" data-target="#editModal-{{ media.mediaid }}">
                                         <img src="/back-office/icons/16x16/page_edit.png">
                                     </a>
-                                    <a href="{{ path('platform_user_delete', {'userid': media.mediaid}) }}" onclick="confirm('Voulez-vous supprimer?');">
+                                    <a href="{{ path('platform_admin_media_delete', {'mediaid': media.mediaid}) }}" class="be-confirmed">
                                         <img src="/back-office/icons/16x16/cross.png">
                                     </a>
                                 </td>

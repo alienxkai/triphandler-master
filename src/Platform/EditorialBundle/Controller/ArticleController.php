@@ -85,4 +85,22 @@ class ArticleController extends Controller
         );
     }
 
+    public function adminDeleteAction(Request $request, $articleId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $currentArticle = $em->getRepository('PlatformEditorialBundle:Article')->find($articleId);
+
+        if(!$currentArticle){
+            return $this->createNotFoundException("Unable to find the Article");
+        }
+
+        $em->remove($currentArticle);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'Article removed successfully.');
+
+        return $this->redirectToRoute('platform_editorial_article_admin');
+    }
+
 }

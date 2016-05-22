@@ -36,6 +36,10 @@ platform_admin_tag_form:
     path:    /tag-edit/{tagid}
     defaults: { _controller: PlatformCoreBundle:Core:adminTagForm, tagid = 0 }
 
+platform_admin_tag_delete:
+    path:    /tag-delete/{tagid}
+    defaults: { _controller: PlatformCoreBundle:Core:adminTagDelete, tagid = 0 }
+
 platform_admin_media:
     path:     /medias
     defaults: { _controller: PlatformCoreBundle:Core:adminMedia }
@@ -43,4 +47,8 @@ platform_admin_media:
 platform_admin_media_form:
     path:    /media-edit/{mediaid}
     defaults: { _controller: PlatformCoreBundle:Core:adminMediaForm, mediaid = 0 }
+
+platform_admin_media_delete:
+    path:    /media-delete/{mediaid}
+    defaults: { _controller: PlatformCoreBundle:Core:adminMediaDelete, mediaid = 0 }
 

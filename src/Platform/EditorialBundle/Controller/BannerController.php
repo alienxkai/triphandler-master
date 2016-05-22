@@ -73,4 +73,22 @@ class BannerController extends Controller
         );
     }
 
+    public function adminDeleteAction(Request $request, $bannerId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $currentBanner= $em->getRepository('PlatformEditorialBundle:Banner')->find($bannerId);
+
+        if(!$currentBanner){
+            return $this->createNotFoundException("Unable to find the Banner");
+        }
+
+        $em->remove($currentBanner);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'Banner removed successfully.');
+
+        return $this->redirectToRoute('platform_editorial_banner_admin');
+    }
+
 }

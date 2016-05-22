@@ -65,7 +65,7 @@ class CoreController extends Controller
 
         if($tagid != 0)
         {
-            $tag = $em->getRepository('PlatformTagBundle:Tag')->find($tagid);
+            $tag = $em->getRepository('PlatformCoreBundle:Tag')->find($tagid);
             $tag->setUpdatedby(1);
             $tag->setUpdatedon(new \DateTime());
         }
@@ -93,6 +93,24 @@ class CoreController extends Controller
                 'form' => $form->createView(),
             )
         );
+    }
+
+    public function adminTagDeleteAction(Request $request, $tagid)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $currentTag = $em->getRepository('PlatformCoreBundle:Tag')->find($tagid);
+
+        if(!$currentTag){
+            return $this->createNotFoundException("Unable to find the tag");
+        }
+
+        $em->remove($currentTag);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'Tag removed successfully.');
+
+        return $this->redirectToRoute('platform_admin_tag');
     }
 
     public function adminMediaAction()
@@ -149,6 +167,24 @@ class CoreController extends Controller
                 'form' => $form->createView(),
             )
         );
+    }
+
+    public function adminMediaDeleteAction(Request $request, $mediaid)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $currentMedia = $em->getRepository('PlatformCoreBundle:Media')->find($mediaid);
+
+        if(!$currentMedia){
+            return $this->createNotFoundException("Unable to find the Media");
+        }
+
+        $em->remove($currentMedia);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'Media removed successfully.');
+
+        return $this->redirectToRoute('platform_admin_media');
     }
 
 }

@@ -6,6 +6,10 @@ platform_editorial_article_form_admin:
     path:     /articles-edit/{articleId}
     defaults: { _controller: PlatformEditorialBundle:Article:adminForm, articleId:0 }
 
+platform_editorial_article_delete_admin:
+    path:     /articles-delete/{articleId}
+    defaults: { _controller: PlatformEditorialBundle:Article:adminDelete, articleId:0 }
+
 platform_editorial_category_admin:
     path:     /categories
     defaults: { _controller: PlatformEditorialBundle:Category:adminIndex }
@@ -14,6 +18,10 @@ platform_editorial_category_form_admin:
     path:     /categories-edit/{categoryId}
     defaults: { _controller: PlatformEditorialBundle:Category:adminForm, categoryId:0 }
 
+platform_editorial_category_delete_admin:
+    path:     /categories-delete/{categoryId}
+    defaults: { _controller: PlatformEditorialBundle:Category:adminDelete, categoryId:0 }
+
 platform_editorial_banner_admin:
     path:     /banners
     defaults: { _controller: PlatformEditorialBundle:Banner:adminIndex }
@@ -21,4 +29,8 @@ platform_editorial_banner_admin:
 platform_editorial_banner_form_admin:
     path:     /banner-edit/{bannerId}
     defaults: { _controller: PlatformEditorialBundle:Banner:adminForm, bannerId:0 }
+
+platform_editorial_banner_delete_admin:
+    path:     /banner-delete/{bannerId}
+    defaults: { _controller: PlatformEditorialBundle:Banner:adminDelete, bannerId:0 }
 

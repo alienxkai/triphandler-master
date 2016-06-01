@@ -9,6 +9,7 @@
 namespace Platform\EditorialBundle\Controller;
 
 
+use Platform\CoreBundle\Form\ContentTagFormType;
 use Platform\EditorialBundle\Entity\Article;
 use Platform\EditorialBundle\Form\ArticleFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -101,6 +102,44 @@ class ArticleController extends Controller
         $request->getSession()->getFlashBag()->add('notice', 'Article removed successfully.');
 
         return $this->redirectToRoute('platform_editorial_article_admin');
+    }
+
+    public function adminEditTagAction(Request $request, $contentId)
+    {
+        $article = new Article();
+
+        $em = $this->getDoctrine()->getManager();
+
+        if($contentId != 0)
+        {
+            $article = $em->getRepository('PlatformEditorialBundle:Article')->find($contentId);
+            $article->setUpdatedOn(new \DateTime());
+            $article->setUpdatedBy(1);
+        }
+
+        $form = $this->createForm(new ContentTagFormType(), $article, array(
+            'action' => $this->generateUrl('platform_editorial_article_tag_form_admin', array('contentId' => $contentId)),
+            'method' => 'POST'
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $em->persist($article);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Tag for Article saved successfully.');
+
+            return $this->redirectToRoute('platform_editorial_article_admin');
+        }
+
+        return $this->render(
+            'PlatformEditorialBundle:admin/Article:tagform.html.twig',
+            array(
+                'form' => $form->createView(),
+            )
+        );
     }
 
 }

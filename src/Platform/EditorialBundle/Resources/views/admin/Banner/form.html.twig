@@ -23,7 +23,13 @@
         <div class="control-group">
             <label class="control-label" for="userrole">Media</label>
             <div class="controls">
-                {{ form_widget(form.mediaid, {'attr': {'class': 'btn-group btn-input clearfix span4', 'placeholder' : 'Media'}}) }}
+                {{ form_widget(form.mediaid, {'attr': {'class': 'btn-group btn-input clearfix span4 img-choice', 'placeholder' : 'Media'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="userrole">Preview</label>
+            <div class="controls">
+                <img src="" alt="banner-view" class="banner-preview"/>
             </div> <!-- /controls -->
         </div> <!-- /control-group -->
     {{ form_end(form) }}
@@ -44,6 +50,12 @@
                 label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
             $('input[data-role="'+ input.attr('data-id') +'"]').val(label);
             input.trigger('fileselect', [numFiles, label]);
+        });
+        $('.img-choice').on('change', function(event) {
+            var select = $(this),
+                url = '/' + $(".img-choice option:selected").text();
+                picture = $('.banner-preview').get(0);
+            picture.src = url;
         });
     });
 </script>

@@ -11,6 +11,7 @@
     <link href="/back-office/css/font-awesome.css" rel="stylesheet">
     <link href="/back-office/css/style.css" rel="stylesheet">
     <link href="/back-office/css/pages/dashboard.css" rel="stylesheet">
+    <link href="/assets/bootstrap-chosen-master/bootstrap-chosen.css" rel="stylesheet">
     <link rel="stylesheet" href="/back-office/minified/themes/office-toolbar.min.css" type="text/css" media="all" />
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -58,13 +59,13 @@
         <div class="subnavbar-inner">
             <div class="container">
                 <ul class="mainnav">
-                    <li class="active">
-                        <a href="index.html"><i class="icon-dashboard"></i><span>Dashboard</span> </a>
+                    <li>
+                        <a href="{{ path('platform_admin_home') }}"><i class="icon-dashboard"></i><span>Dashboard</span> </a>
                     </li>
                     <li>
                         <a href="{{ path('platform_admin_user') }}"><img src="/back-office/icons/32x32/group.png"><span>User</span> </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="{{ path('platform_editorial_category_admin') }}"><img src="/back-office/icons/32x32/newspaper.png"><span>Editorial</span> </a>
                     </li>
                     <li class="dropdown">

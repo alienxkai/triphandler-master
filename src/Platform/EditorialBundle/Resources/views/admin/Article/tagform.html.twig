@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" class="modal-title">
+        <img src="/back-office/icons/16x16/page_edit.png"> <span>Edit tag for article</span>
+    </h3>
+</div>
+<div class="modal-body" style="height: auto !important; ">
+    <!--<p>One fine body…</p>-->
+    <!--<form id="edit-profile" class="form-horizontal">-->
+    {{ form_start(form, {'attr': {'id': 'edit-article' , 'class':'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+
+        {% for tag in form.tags %}
+            {{ form_row(tag) }}
+        {% endfor %}
+
+    {{ form_end(form) }}
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="submit" form="edit-article" class="btn btn-primary" />
+</div>
+<script src="/assets/bootstrap-chosen-master/chosen.jquery.js"></script>
+<script>
+    $(function() {
+        $('.chosen-select').chosen();
+        $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
+    });
+</script>

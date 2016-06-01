@@ -9,6 +9,7 @@
 namespace Platform\CoreBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\InheritanceType;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
@@ -84,6 +85,17 @@ abstract class Content
      * @ORM\JoinColumn(name="SITEID", referencedColumnName="SITEID", nullable=false);
      */
     protected $site;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Platform\CoreBundle\Entity\Tag", cascade={"persist"})
+     * @ORM\JoinTable(name="content_tags",
+     *  joinColumns={@ORM\JoinColumn(name="CONTENTID", referencedColumnName="CONTENTID")},
+     *  inverseJoinColumns={@ORM\JoinColumn(name="TAGID", referencedColumnName="TAGID")}
+     * )
+     */
+    protected $tags;
 
     /**
      * @return mixed
@@ -211,6 +223,38 @@ abstract class Content
     public function setContentid($contentid)
     {
         $this->contentid = $contentid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param mixed $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * @param Tag $tag
+     */
+    public function addTags(Tag $tag)
+    {
+        $this->tags->add($tag);
+    }
+
+    /**
+     * @param Tag $tag
+     */
+    public function removeTags(Tag $tag)
+    {
+        $this->tags->removeElement($tag);
     }
 
 }

@@ -2,11 +2,10 @@
 
 namespace Platform\EditorialBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Platform\CoreBundle\Entity\Content;
-use Platform\CoreBundle\Entity\ContentType;
 use Platform\CoreBundle\Entity\Media;
-use Platform\CoreBundle\Entity\Site;
 
 /**
  * Article
@@ -19,7 +18,7 @@ class Article extends Content
     /**
      * @var integer
      *
-     * @ORM\Column(name="SITEID", type="integer")
+     * @ORM\Column(name="CONTENTID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -106,9 +105,13 @@ class Article extends Content
      */
     private $imagebox3;
 
+    /**
+     * Article constructor.
+     */
     public function __construct()
     {
         $this->createdOn = new \DateTime();
+        $this->tags = new ArrayCollection();
     }
 
     /**

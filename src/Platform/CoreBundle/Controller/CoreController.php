@@ -145,7 +145,7 @@ class CoreController extends Controller
         }
 
         $form = $this->createForm(new MediaFormType(), $media, array(
-            'action' => $this->generateUrl('platform_admin_media_form'),
+            'action' => $this->generateUrl('platform_admin_media_form', array('mediaid' => $mediaid)),
             'method' => 'POST'
         ));
 

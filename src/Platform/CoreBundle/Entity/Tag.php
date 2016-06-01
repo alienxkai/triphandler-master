@@ -2,6 +2,7 @@
 
 namespace Platform\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,6 +60,7 @@ class Tag
     public function __construct()
     {
         $this->createdon = new \DateTime();
+        $this->contents = new ArrayCollection();
     }
 
     /**
@@ -185,4 +187,5 @@ class Tag
     {
         return $this->updatedby;
     }
+
 }

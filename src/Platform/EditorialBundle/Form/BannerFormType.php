@@ -15,7 +15,7 @@ class BannerFormType extends AbstractType
             ->add('description','textarea')
             ->add('mediaid', 'entity', array(
                 'class'    => 'Platform\CoreBundle\Entity\Media',
-                'property' => 'title')
+                'property' => 'webPath')
             )
         ;
     }

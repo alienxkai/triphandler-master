@@ -5,4 +5,7 @@ $(function () {
 			$(this).addClass ('subnavbar-open-right');
 		}
 	});
+	$('.be-confirmed').on('click', function () {
+		return confirm('Do you want to delete?');
+	});
 });

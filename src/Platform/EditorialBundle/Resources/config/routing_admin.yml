@@ -34,3 +34,7 @@ platform_editorial_banner_delete_admin:
     path:     /banner-delete/{bannerId}
     defaults: { _controller: PlatformEditorialBundle:Banner:adminDelete, bannerId:0 }
 
+platform_editorial_article_tag_form_admin:
+    path:     /tag-articles-edit/{contentId}
+    defaults: { _controller: PlatformEditorialBundle:Article:adminEditTag, contentId:0 }
+

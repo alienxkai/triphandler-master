@@ -1,0 +1,3 @@
+platform_customer_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PlatformCustomerBundle:Default:index }

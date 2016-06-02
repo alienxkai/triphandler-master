@@ -89,7 +89,7 @@ abstract class Content
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Platform\CoreBundle\Entity\Tag", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Platform\CoreBundle\Entity\Tag", cascade={"remove"})
      * @ORM\JoinTable(name="content_tags",
      *  joinColumns={@ORM\JoinColumn(name="CONTENTID", referencedColumnName="CONTENTID")},
      *  inverseJoinColumns={@ORM\JoinColumn(name="TAGID", referencedColumnName="TAGID")}

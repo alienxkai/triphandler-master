@@ -73,8 +73,6 @@ class UserController extends CoreController{
         $em = $this->getDoctrine()->getManager();
 
         $currentUser = $em->getRepository('PlatformCoreBundle:User')->find($userid);
-
-        dump($currentUser);
         
         if(!$currentUser){
             return $this->createNotFoundException("Unable to find the user");

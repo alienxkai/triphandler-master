@@ -50,7 +50,7 @@ class BannerController extends Controller
         }
 
         $form = $this->createForm(new BannerFormType(), $banner, array(
-            'action' => $this->generateUrl('platform_editorial_banner_form_admin'),
+            'action' => $this->generateUrl('platform_editorial_banner_form_admin', array('bannerId' => $bannerId)),
             'method' => 'POST'
         ));
 

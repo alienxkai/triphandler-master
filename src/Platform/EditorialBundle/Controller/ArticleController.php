@@ -53,7 +53,7 @@ class ArticleController extends Controller
         }
 
         $form = $this->createForm(new ArticleFormType(), $article, array(
-            'action' => $this->generateUrl('platform_editorial_article_form_admin'),
+            'action' => $this->generateUrl('platform_editorial_article_form_admin', array('articleId' => $articleId)),
             'method' => 'POST'
         ));
 
@@ -91,12 +91,15 @@ class ArticleController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $currentArticle = $em->getRepository('PlatformEditorialBundle:Article')->find($articleId);
+        $currentContent = $em->getRepository('PlatformCoreBundle:Content')->find($articleId);
 
         if(!$currentArticle){
             return $this->createNotFoundException("Unable to find the Article");
         }
 
         $em->remove($currentArticle);
+        $em->remove($currentContent);
+
         $em->flush();
 
         $request->getSession()->getFlashBag()->add('notice', 'Article removed successfully.');

@@ -49,7 +49,7 @@ class CategoryController extends Controller
         }
 
         $form = $this->createForm(new CategoryFormType(), $category, array(
-            'action' => $this->generateUrl('platform_editorial_category_form_admin'),
+            'action' => $this->generateUrl('platform_editorial_category_form_admin', array('categoryId' => $categoryId)),
             'method' => 'POST'
         ));
 

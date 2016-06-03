@@ -5,12 +5,12 @@ namespace Platform\CustomerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CustomerAppliance
+ * Appliance
  *
  * @ORM\Table(name="customer_appliance", indexes={@ORM\Index(name="FK_APPLIANCE_SITE", columns={"SITEID"}), @ORM\Index(name="FK_OFFER_APPLIANCE", columns={"OFFERID"})})
  * @ORM\Entity
  */
-class CustomerAppliance
+class Appliance
 {
     /**
      * @var integer
@@ -79,7 +79,7 @@ class CustomerAppliance
      * Set siteid
      *
      * @param integer $siteid
-     * @return CustomerAppliance
+     * @return Appliance
      */
     public function setSiteid($siteid)
     {
@@ -102,7 +102,7 @@ class CustomerAppliance
      * Set offerid
      *
      * @param integer $offerid
-     * @return CustomerAppliance
+     * @return Appliance
      */
     public function setOfferid($offerid)
     {
@@ -125,7 +125,7 @@ class CustomerAppliance
      * Set appliancedate
      *
      * @param \DateTime $appliancedate
-     * @return CustomerAppliance
+     * @return Appliance
      */
     public function setAppliancedate($appliancedate)
     {
@@ -148,7 +148,7 @@ class CustomerAppliance
      * Set expiratedate
      *
      * @param \DateTime $expiratedate
-     * @return CustomerAppliance
+     * @return Appliance
      */
     public function setExpiratedate($expiratedate)
     {
@@ -171,7 +171,7 @@ class CustomerAppliance
      * Set mail
      *
      * @param string $mail
-     * @return CustomerAppliance
+     * @return Appliance
      */
     public function setMail($mail)
     {
@@ -194,7 +194,7 @@ class CustomerAppliance
      * Set phone
      *
      * @param string $phone
-     * @return CustomerAppliance
+     * @return Appliance
      */
     public function setPhone($phone)
     {

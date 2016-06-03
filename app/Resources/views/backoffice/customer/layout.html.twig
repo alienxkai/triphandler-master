@@ -1,16 +1,16 @@
 {% extends '/backoffice/index.html.twig' %}
 
-{% block page_title %} Admin Page - Trip Handlers - Editorial{% endblock %}
+{% block page_title %} Admin Page - Trip Handlers - Customer{% endblock %}
 
 {% block mainnav %}
     <ul class="mainnav">
         <li>
             <a href="{{ path('platform_admin_user') }}"><img src="/back-office/icons/32x32/lock.png"><span>Security</span> </a>
         </li>
-        <li class="active">
+        <li>
             <a href="{{ path('platform_editorial_category_admin') }}"><img src="/back-office/icons/32x32/newspaper.png"><span>Editorial</span> </a>
         </li>
-        <li>
+        <li class="active">
             <a href="{{ path('platform_customer_admin_client') }}"><img src="/back-office/icons/32x32/status_online.png"><span>Customer</span> </a>
         </li>
         <li class="dropdown">
@@ -29,11 +29,9 @@
 
 {% block leftmenu %}
     <div class="span2">
-        <a href="{{ path('platform_editorial_category_admin') }}" class="main-left"><img src="/back-office/icons/32x32/folder.png"> <span>Category</span></a>
-        <a href="{{ path('platform_editorial_article_admin') }}" class="main-left"><img src="/back-office/icons/32x32/page_edit.png"> <span>Article</span></a>
-        <a href="{{ path('platform_admin_tag') }}" class="main-left"><img src="/back-office/icons/32x32/tag_blue.png"> <span>Tag</span></a>
-        <a href="{{ path('platform_editorial_banner_admin') }}" class="main-left"><img src="/back-office/icons/32x32/layout_header.png"> <span>Banner</span></a>
-        <a href="{{ path('platform_admin_media') }}" class="main-left"><img src="/back-office/icons/32x32/pictures.png"> <span>Media</span></a>
+        <a href="{{ path('platform_customer_admin_client') }}" class="main-left"><img src="/back-office/icons/32x32/report_user.png"> <span>Customer</span></a>
+        <a href="{{ path('platform_editorial_article_admin') }}" class="main-left"><img src="/back-office/icons/32x32/package.png"> <span>Offers</span></a>
+        <a href="{{ path('platform_admin_tag') }}" class="main-left"><img src="/back-office/icons/32x32/application_form.png"> <span>Appliance</span></a>
     </div>
     <!-- /span2 -->
 {% endblock %}

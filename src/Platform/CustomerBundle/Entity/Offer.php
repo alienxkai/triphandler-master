@@ -5,12 +5,12 @@ namespace Platform\CustomerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CustomerOffer
+ * Offer
  *
  * @ORM\Table(name="customer_offer")
  * @ORM\Entity
  */
-class CustomerOffer
+class Offer
 {
     /**
      * @var integer
@@ -135,7 +135,7 @@ class CustomerOffer
      * Set title
      *
      * @param string $title
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setTitle($title)
     {
@@ -158,7 +158,7 @@ class CustomerOffer
      * Set seotitle
      *
      * @param string $seotitle
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setSeotitle($seotitle)
     {
@@ -181,7 +181,7 @@ class CustomerOffer
      * Set description
      *
      * @param string $description
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setDescription($description)
     {
@@ -204,7 +204,7 @@ class CustomerOffer
      * Set metadescription
      *
      * @param string $metadescription
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setMetadescription($metadescription)
     {
@@ -227,7 +227,7 @@ class CustomerOffer
      * Set htmlcontent
      *
      * @param string $htmlcontent
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setHtmlcontent($htmlcontent)
     {
@@ -250,7 +250,7 @@ class CustomerOffer
      * Set price
      *
      * @param string $price
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setPrice($price)
     {
@@ -273,7 +273,7 @@ class CustomerOffer
      * Set duration
      *
      * @param integer $duration
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setDuration($duration)
     {
@@ -296,7 +296,7 @@ class CustomerOffer
      * Set startdate
      *
      * @param \DateTime $startdate
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setStartdate($startdate)
     {
@@ -319,7 +319,7 @@ class CustomerOffer
      * Set enddate
      *
      * @param \DateTime $enddate
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setEnddate($enddate)
     {
@@ -342,7 +342,7 @@ class CustomerOffer
      * Set createdby
      *
      * @param integer $createdby
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setCreatedby($createdby)
     {
@@ -365,7 +365,7 @@ class CustomerOffer
      * Set createdon
      *
      * @param \DateTime $createdon
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setCreatedon($createdon)
     {
@@ -388,7 +388,7 @@ class CustomerOffer
      * Set updatedby
      *
      * @param integer $updatedby
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setUpdatedby($updatedby)
     {
@@ -411,7 +411,7 @@ class CustomerOffer
      * Set updatedon
      *
      * @param \DateTime $updatedon
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setUpdatedon($updatedon)
     {
@@ -434,7 +434,7 @@ class CustomerOffer
      * Set statut
      *
      * @param string $statut
-     * @return CustomerOffer
+     * @return Offer
      */
     public function setStatut($statut)
     {

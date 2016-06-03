@@ -2,16 +2,18 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel" class="modal-title">
-        <img src="/back-office/icons/16x16/page_edit.png"> <span>Edit banner</span>
+        <img src="/back-office/icons/16x16/page_edit.png"> <span>Edit customer</span>
     </h3>
 </div>
 <div class="modal-body" style="height: auto !important; ">
-    {{ form_start(form, {'attr': {'id': 'edit-banner' , 'class':'form-horizontal'}}) }}
+    <!--<p>One fine body…</p>-->
+    <!--<form id="edit-profile" class="form-horizontal">-->
+    {{ form_start(form, {'attr': {'id': 'edit-customer' , 'class':'form-horizontal'}}) }}
         {{ form_errors(form) }}
         <div class="control-group">
-            <label class="control-label" for="username">Title</label>
+            <label class="control-label" for="username">Name</label>
             <div class="controls">
-                {{ form_widget(form.title, {'attr': {'class': 'span4', 'placeholder': 'Title'}}) }}
+                {{ form_widget(form.name, {'attr': {'class': 'span4', 'placeholder': 'Title'}}) }}
             </div> <!-- /controls -->
         </div> <!-- /control-group -->
         <div class="control-group">
@@ -20,31 +22,27 @@
                 {{ form_widget(form.description, {'attr': {'id':'email','class': 'span4', 'placeholder': 'Description'}}) }}
             </div> <!-- /controls -->
         </div> <!-- /control-group -->
+
         <div class="control-group">
-            <label class="control-label" for="userrole">Media</label>
+            <label class="control-label" for="mail">SEO Name</label>
             <div class="controls">
-                {{ form_widget(form.mediaid, {'attr': {'class': 'btn-group btn-input clearfix span4 img-choice', 'placeholder' : 'Media'}}) }}
+                {{ form_widget(form.seoname, {'attr': {'class': 'span4'}}) }}
             </div> <!-- /controls -->
         </div> <!-- /control-group -->
         <div class="control-group">
-            <label class="control-label" for="userrole">Preview</label>
+            <label class="control-label" for="mail">Meta Description</label>
             <div class="controls">
-                <img src="" alt="banner-view" width="375px" class="banner-preview"/>
+                {{ form_widget(form.metadescription, {'attr': {'class': 'span4'}}) }}
             </div> <!-- /controls -->
         </div> <!-- /control-group -->
     {{ form_end(form) }}
 </div>
 <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <input type="submit" form="edit-banner" class="btn btn-primary" value="Save" />
+    <input type="submit" form="edit-customer" class="btn btn-primary" />
 </div>
 <script>
     $(function () {
-
-        var url = '/' + $(".img-choice option:selected").text();
-        picture = $('.banner-preview').get(0);
-        picture.src = url;
-
         $(".htmlcontent").sceditor({
             plugins: 'bbcode',
             style: "/back-office/minified/jquery.sceditor.default.min.css"
@@ -55,11 +53,6 @@
                 label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
             $('input[data-role="'+ input.attr('data-id') +'"]').val(label);
             input.trigger('fileselect', [numFiles, label]);
-        });
-        $('.img-choice').on('change', function(event) {
-            var url = '/' + $(".img-choice option:selected").text();
-                picture = $('.banner-preview').get(0);
-            picture.src = url;
         });
     });
 </script>

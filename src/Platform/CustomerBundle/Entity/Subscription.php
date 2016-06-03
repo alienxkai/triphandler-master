@@ -5,12 +5,12 @@ namespace Platform\CustomerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CustomerSubscription
+ * Subscription
  *
  * @ORM\Table(name="customer_subscription", indexes={@ORM\Index(name="FK_CLIENT_SUBSCRIPTION", columns={"CLIENTID"}), @ORM\Index(name="FK_SUBSCRIPTION_APPLY", columns={"APPLICANCEID"}), @ORM\Index(name="FK_SUBSCRIPTION_USER", columns={"USERID"})})
  * @ORM\Entity
  */
-class CustomerSubscription
+class Subscription
 {
     /**
      * @var integer
@@ -79,7 +79,7 @@ class CustomerSubscription
      * Set userid
      *
      * @param integer $userid
-     * @return CustomerSubscription
+     * @return Subscription
      */
     public function setUserid($userid)
     {
@@ -102,7 +102,7 @@ class CustomerSubscription
      * Set applicanceid
      *
      * @param integer $applicanceid
-     * @return CustomerSubscription
+     * @return Subscription
      */
     public function setApplicanceid($applicanceid)
     {
@@ -125,7 +125,7 @@ class CustomerSubscription
      * Set clientid
      *
      * @param integer $clientid
-     * @return CustomerSubscription
+     * @return Subscription
      */
     public function setClientid($clientid)
     {
@@ -148,7 +148,7 @@ class CustomerSubscription
      * Set startdate
      *
      * @param \DateTime $startdate
-     * @return CustomerSubscription
+     * @return Subscription
      */
     public function setStartdate($startdate)
     {
@@ -171,7 +171,7 @@ class CustomerSubscription
      * Set enddate
      *
      * @param \DateTime $enddate
-     * @return CustomerSubscription
+     * @return Subscription
      */
     public function setEnddate($enddate)
     {
@@ -194,7 +194,7 @@ class CustomerSubscription
      * Set statut
      *
      * @param string $statut
-     * @return CustomerSubscription
+     * @return Subscription
      */
     public function setStatut($statut)
     {

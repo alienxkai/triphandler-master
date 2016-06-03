@@ -8,19 +8,15 @@
 
 namespace Platform\EditorialBundle\Controller;
 
-
-use Platform\EditorialBundle\Entity\Article;
 use Platform\EditorialBundle\Entity\Category;
-use Platform\EditorialBundle\Form\ArticleFormType;
 use Platform\EditorialBundle\Form\CategoryFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\Date;
 
 class CategoryController extends Controller
 {
 
-    public function adminIndexAction(Request $request)
+    public function adminIndexAction()
     {
 
         $em = $this->getDoctrine()->getManager();

@@ -1,0 +1,71 @@
+{% extends '/backoffice/customer/layout.html.twig' %}
+
+{% block page_title %} Admin Page - Trip Handlers - Customers{% endblock %}
+
+{% block maincontent %}
+<div class="span10">
+    <div class="widget widget-table action-table">
+        <div class="widget-header"> <i class="icon-th-list"></i>
+            <h3> {%  block header_title %} Customers {% endblock %} </h3>
+            <a href="{{ path('platform_customer_admin_client_form') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
+                <i class="icon-plus"></i>&nbsp; Add
+            </a>
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /widget-header -->
+        <div class="widget-content">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Description </th>
+                    <th class="td-actions"> </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    {% if clients is not empty %}
+                        {% for client in clients %}
+                            <tr>
+                                <td> {{ client.clientid }} </td>
+                                <td> {{ client.name }} </td>
+                                <td> {{ client.description }} </td>
+                                <td class="td-actions">
+                                    <a href="{{ path('platform_customer_admin_client_form', {'clientId': client.clientid}) }}" data-toggle="modal" data-target="#editModal-{{ client.clientid }}">
+                                        <img src="/back-office/icons/16x16/page_edit.png">
+                                    </a>
+                                    <a href="{{ path('platform_customer_admin_client_delete', {'clientId': client.clientid}) }}" class="be-confirmed">
+                                        <img src="/back-office/icons/16x16/cross.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <div id="editModal-{{ client.clientid }}" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <tr >
+                            <td colspan="4" class="text-center">No items yet</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /widget-content -->
+    </div>
+    <!-- /widget -->
+</div>
+<!-- /span10 -->
+
+{% endblock %}

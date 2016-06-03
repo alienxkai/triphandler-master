@@ -1,0 +1,11 @@
+platform_customer_admin_client:
+    path:     /clients
+    defaults: { _controller: PlatformCustomerBundle:Customer:adminClient }
+
+platform_customer_admin_client_form:
+    path:     /client-edit/{clientId}
+    defaults: { _controller: PlatformCustomerBundle:Customer:adminForm, clientId:0 }
+
+platform_customer_admin_client_delete:
+    path:     /client-delete/{clientId}
+    defaults: { _controller: PlatformCustomerBundle:Customer:adminDelete, clientId:0 }

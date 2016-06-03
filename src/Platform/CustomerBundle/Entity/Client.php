@@ -5,12 +5,12 @@ namespace Platform\CustomerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CustomerClient
+ * Client
  *
  * @ORM\Table(name="customer_client")
  * @ORM\Entity
  */
-class CustomerClient
+class Client
 {
     /**
      * @var integer
@@ -77,7 +77,11 @@ class CustomerClient
      */
     private $updatedon;
 
+    public function __construct()
+    {
 
+        $this->createdon = new \DateTime();
+    }
 
     /**
      * Get clientid
@@ -93,7 +97,7 @@ class CustomerClient
      * Set name
      *
      * @param string $name
-     * @return CustomerClient
+     * @return Client
      */
     public function setName($name)
     {
@@ -116,7 +120,7 @@ class CustomerClient
      * Set description
      *
      * @param string $description
-     * @return CustomerClient
+     * @return Client
      */
     public function setDescription($description)
     {
@@ -139,7 +143,7 @@ class CustomerClient
      * Set seoname
      *
      * @param string $seoname
-     * @return CustomerClient
+     * @return Client
      */
     public function setSeoname($seoname)
     {
@@ -162,7 +166,7 @@ class CustomerClient
      * Set metadescription
      *
      * @param string $metadescription
-     * @return CustomerClient
+     * @return Client
      */
     public function setMetadescription($metadescription)
     {
@@ -185,7 +189,7 @@ class CustomerClient
      * Set createdby
      *
      * @param integer $createdby
-     * @return CustomerClient
+     * @return Client
      */
     public function setCreatedby($createdby)
     {
@@ -208,7 +212,7 @@ class CustomerClient
      * Set createdon
      *
      * @param \DateTime $createdon
-     * @return CustomerClient
+     * @return Client
      */
     public function setCreatedon($createdon)
     {
@@ -231,7 +235,7 @@ class CustomerClient
      * Set updatedby
      *
      * @param integer $updatedby
-     * @return CustomerClient
+     * @return Client
      */
     public function setUpdatedby($updatedby)
     {
@@ -254,7 +258,7 @@ class CustomerClient
      * Set updatedon
      *
      * @param \DateTime $updatedon
-     * @return CustomerClient
+     * @return Client
      */
     public function setUpdatedon($updatedon)
     {

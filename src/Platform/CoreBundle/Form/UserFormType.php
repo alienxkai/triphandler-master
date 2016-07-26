@@ -25,8 +25,8 @@ class UserFormType extends AbstractType
                 'class'    => 'Platform\CoreBundle\Entity\Userrole',
                 'property' => 'userrolename'
             ))
-            ->add('secretquestion','text')
-            ->add('secretanswer','text')
+            ->add('secretquestion','text',array('required' => false))
+            ->add('secretanswer','text',array('required' => false))
         ;
     }
 

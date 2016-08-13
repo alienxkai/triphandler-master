@@ -72,10 +72,10 @@ class CustomerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $currentClient = $em->getRepository('PlatformEditorialBundle:Category')->find($clientId);
+        $currentClient = $em->getRepository('PlatformEditorialBundle:Client')->find($clientId);
 
         if(!$currentClient){
-            return $this->createNotFoundException("Unable to find the Category");
+            return $this->createNotFoundException("Unable to find the Client");
         }
 
         $em->remove($currentClient);

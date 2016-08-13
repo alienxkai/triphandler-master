@@ -9,3 +9,15 @@ platform_customer_admin_client_form:
 platform_customer_admin_client_delete:
     path:     /client-delete/{clientId}
     defaults: { _controller: PlatformCustomerBundle:Customer:adminDelete, clientId:0 }
+
+platform_customer_admin_offer:
+    path:     /offers
+    defaults: { _controller: PlatformCustomerBundle:Offer:adminOffer }
+
+platform_customer_admin_offer_form:
+    path:     /offer-edit/{offerId}
+    defaults: { _controller: PlatformCustomerBundle:Offer:adminForm, offerId:0 }
+
+platform_customer_admin_offer_delete:
+    path:     /offer-delete/{offerId}
+    defaults: { _controller: PlatformCustomerBundle:Offer:adminDelete, offerId:0 }

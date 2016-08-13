@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" class="modal-title">
+        <img src="/back-office/icons/16x16/page_edit.png"> <span>Edit offer</span>
+    </h3>
+</div>
+<div class="modal-body" style="height: auto !important; ">
+    <!--<p>One fine body…</p>-->
+    <!--<form id="edit-profile" class="form-horizontal">-->
+    {{ form_start(form, {'attr': {'id': 'edit-customer' , 'class':'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+        <div class="control-group">
+            <label class="control-label" for="username">Title</label>
+            <div class="controls">
+                {{ form_widget(form.title, {'attr': {'class': 'span7', 'placeholder': 'Title'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="mail">Description</label>
+            <div class="controls">
+                {{ form_widget(form.description, {'attr': {'id':'email','class': 'span7', 'placeholder': 'Description'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+
+        <div class="control-group">
+            <label class="control-label" for="mail">SEO Title</label>
+            <div class="controls">
+                {{ form_widget(form.seotitle, {'attr': {'class': 'span7', 'placeholder': 'Seo Title'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="mail">Meta Description</label>
+            <div class="controls">
+                {{ form_widget(form.metadescription, {'attr': {'class': 'span7', 'placeholder': 'Meta Description'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label">HTML Content</label>
+            <div class="controls">
+                {{ form_widget(form.htmlcontent, {'attr': {'class': 'span7 htmlcontent', 'style': 'height:300px;'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="mail">Price</label>
+            <div class="controls">
+                {{ form_widget(form.price, {'attr': {'class': 'span7', 'placeholder': 'Price'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="mail">Duration</label>
+            <div class="controls">
+                {{ form_widget(form.duration, {'attr': {'class': 'span7', 'placeholder': 'Duration'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="mail">Start Date</label>
+            <div class="controls">
+                {{ form_widget(form.startdate, {'attr': {'class': 'span7', 'placeholder': 'Start'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+        <div class="control-group">
+            <label class="control-label" for="mail">End Date</label>
+            <div class="controls">
+                {{ form_widget(form.enddate, {'attr': {'class': 'span7', 'placeholder': 'Duration'}}) }}
+            </div> <!-- /controls -->
+        </div> <!-- /control-group -->
+    {{ form_end(form) }}
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="submit" form="edit-customer" class="btn btn-primary" />
+</div>
+<script>
+    $(function () {
+        $(".htmlcontent").sceditor({
+            plugins: 'bbcode',
+            style: "/back-office/minified/jquery.sceditor.default.min.css"
+        });
+        $('.file-btn').on('change', function(event) {
+            var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            $('input[data-role="'+ input.attr('data-id') +'"]').val(label);
+            input.trigger('fileselect', [numFiles, label]);
+        });
+    });
+</script>
+

@@ -119,7 +119,11 @@ class Offer
      */
     private $statut;
 
+    public function __construct()
+    {
 
+        $this->createdon = new \DateTime();
+    }
 
     /**
      * Get offerid

@@ -1,0 +1,77 @@
+{% extends '/backoffice/customer/layout.html.twig' %}
+
+{% block page_title %} Admin Page - Trip Handlers - Offers{% endblock %}
+
+{% block maincontent %}
+<div class="span10">
+    <div class="widget widget-table action-table">
+        <div class="widget-header"> <i class="icon-th-list"></i>
+            <h3> {%  block header_title %} Offers {% endblock %} </h3>
+            <a href="{{ path('platform_customer_admin_offer_form') }}" class="btn btn-primary btn-small pull-right btn-header" data-toggle="modal" data-target="#myModal" >
+                <i class="icon-plus"></i>&nbsp; Add
+            </a>
+            <div id="myModal" class="modal modal-large fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /widget-header -->
+        <div class="widget-content">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Title </th>
+                    <th> Description </th>
+                    <th> Price </th>
+                    <th> Start </th>
+                    <th> End </th>
+                    <th class="td-actions"> </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    {% if offers is not empty %}
+                        {% for offer in offers %}
+                            <tr>
+                                <td> {{ offer.offerid }} </td>
+                                <td> {{ offer.title }} </td>
+                                <td> {{ offer.description }} </td>
+                                <td> {{ offer.price }} </td>
+                                <td> {{ offer.startdate | date('d/m/Y')}} </td>
+                                <td> {{ offer.enddate | date('d/m/Y') }} </td>
+                                <td class="td-actions">
+                                    <a href="{{ path('platform_customer_admin_offer_form', {'offerId': offer.offerid}) }}" data-toggle="modal" data-target="#editModal-{{ offer.offerid }}">
+                                        <img src="/back-office/icons/16x16/page_edit.png">
+                                    </a>
+                                    <a href="{{ path('platform_customer_admin_offer_delete', {'offerId': offer.offerid}) }}" class="be-confirmed">
+                                        <img src="/back-office/icons/16x16/cross.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <div id="editModal-{{ offer.offerid }}" class="modal modal-large fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <tr >
+                            <td colspan="7" class="text-center">No items yet</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /widget-content -->
+    </div>
+    <!-- /widget -->
+</div>
+<!-- /span10 -->
+
+{% endblock %}
